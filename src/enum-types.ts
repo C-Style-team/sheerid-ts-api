@@ -143,6 +143,20 @@ export type SheerIDSubSegment =
     "licensedRealEstateAgent" |
     "licensedCosmetologist";
 
+export type SheerIDOrganizationType =
+    "UNIVERSITY" |
+    "POST_SECONDARY" |
+    "MEMBERSHIP" |
+    "MILITARY" |
+    "FIRST_RESPONDER" |
+    "MEDICAL" |
+    "NON_PROFIT" |
+    "CORPORATE" |
+    "K12" |
+    "AGE_ID" |
+    "HIGH_SCHOOL" |
+    "NONE";
+
 export type SheerIDErrorMessage =
     `No verification found with id '${string}'` |
     "Provided API token is empty or invalid" |

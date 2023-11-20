@@ -2,17 +2,19 @@ import {
     SheerIDCurrentStep,
     SheerIDErrorIds,
     SheerIDSegment,
-    SheerIDSubSegment
+    SheerIDSubSegment,
+    SheerIDErrorMessage,
+    SheerIDOrganizationType,
 } from "enum-types";
 
 export type SheerIDVerificationMethod = "INSTANT";
 
 export type SheerID401Error = Readonly<{
-    systemErrorMessage: "Provided API token is empty or invalid",
+    systemErrorMessage: SheerIDErrorMessage,
 }>;
 
 export type SheerID404Error = Readonly<{
-    systemErrorMessage: `No verification found with id '${string}'`,
+    systemErrorMessage: SheerIDErrorMessage,
 }>;
 
 export type SheerIDOrganization = Readonly<{
@@ -20,6 +22,18 @@ export type SheerIDOrganization = Readonly<{
     name: string,
     idExtended?: string,
     source?: string
+}>;
+
+// [GET Response] /rest/v2/organization/{verificationId}
+export type SheerIDOrganizationDetails = Readonly<{
+    id: number,
+    name: string,
+    type: SheerIDOrganizationType,
+    street: string,
+    city: string,
+    state: string,
+    zip: string,
+    country: string
 }>;
 
 // [POST Schema] /rest/v2/verification/program/{programId}/step/collectStudentPersonalInfo
