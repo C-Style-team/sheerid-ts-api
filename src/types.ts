@@ -7,7 +7,7 @@ export type SheerID401Error = Readonly<{
 }>;
 
 export type SheerID404Error = Readonly<{
-    systemErrorMessage: "No verification found with id '`${string}`'",
+    systemErrorMessage: `No verification found with id '${string}'`,
 }>;
 
 export type SheerIDOrganization = Readonly<{
@@ -18,7 +18,7 @@ export type SheerIDOrganization = Readonly<{
 export type SheerIDPersonInfo = Readonly<{
     firstName: string,
     lastName: string,
-    email: "`${string}`@`${string}`.`{$string}`",
+    email: `${string}@${string}.${string}`
     birthDate: "1991-01-01",
     metadata: {
         my: "stuff" // ?
