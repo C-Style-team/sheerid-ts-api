@@ -1,5 +1,10 @@
-export type SheerIDCurrentStep = "success" | "error";
-export type SheerIDSegment = "student";
+import {
+    SheerIDCurrentStep,
+    SheerIDErrorIds,
+    SheerIDSegment,
+    SheerIDSubSegment
+} from "enum-types";
+
 export type SheerIDVerificationMethod = "INSTANT";
 
 export type SheerID401Error = Readonly<{
@@ -13,38 +18,51 @@ export type SheerID404Error = Readonly<{
 export type SheerIDOrganization = Readonly<{
     id: number,
     name: string,
+    idExtended?: string,
+    source?: string
 }>;
 
+// [POST Schema] /rest/v2/verification/program/{programId}/step/collectStudentPersonalInfo
 export type SheerIDPersonInfo = Readonly<{
     firstName: string,
     lastName: string,
     email: `${string}@${string}.${string}`
-    birthDate: "1991-01-01",
-    metadata: {
-        my: "stuff" // ?
-    },
+    birthDate: string, //"1991-01-01",
     organization: SheerIDOrganization,
+    deviceFingerprintHash?: string,
+    ipAddressExtended?: string,
+    externalUserId?: string,
+    phoneNumber?: string,
+    locale?: string,
+    metadata: any[],
 }>;
 
-// /rest/v2/verification/{verificationId}
-// /rest/v2/verification/program/{programId}/trackingId/{trackingId}
+// [GET Response] /rest/v2/info
+export type SheerIDBuildInfo = Readonly<{
+    sheeridVersion: string,
+    sheeridGitCommit: string,
+    puppetGitCommit: string,
+    buildTimestamp: string, // "2023-11-18T13:35:52Z"
+}>;
 
+// [GET Response] /rest/v2/verification/{verificationId}
+// [GET Response] /rest/v2/verification/program/{programId}/trackingId/{trackingId}
 export type SheerIDVerificationStatus = Readonly<{
     verificationId: string,
     currentStep: SheerIDCurrentStep,
     errorIds: any[], // なんだっけ
     segment: SheerIDSegment,
-    subSegment: SheerIDSegment | null,
+    subSegment: SheerIDSubSegment | null,
     locale: string, // locale (en-US, ja-JP みたいな)のらいぶらりってある？
     country: string,
-    rewardCode: string,
+    rewardCode: string | null,
     redirectUrl: URL | null,
     rewardData: {
-        rewardCode: string,
+        rewardCode?: string,
     }
 }>;
 
-// /rest/v2/verification/{verificationId}/details
+// [GET Response] /rest/v2/verification/{verificationId}/details
 export type SheerIDVerificationStatusDetails = Readonly<{
     programId: string,
     trackingId: string | null,
@@ -52,8 +70,8 @@ export type SheerIDVerificationStatusDetails = Readonly<{
     socialId: string,
     created: Date, // unix time
     updated: Date, // unix time
-    lastResponse: {
-
+    lastResponse: SheerIDVerificationStatus & {
+        consumerInfoState: string | null,
     },
     personInfo: SheerIDPersonInfo,
     docUploadRejectionCount: number,
@@ -61,11 +79,8 @@ export type SheerIDVerificationStatusDetails = Readonly<{
     verificationMethod: SheerIDVerificationMethod,
     confirmedSegments: {
         segment: SheerIDSegment,
-        subSegment: SheerIDSegment | null,
-        organization: SheerIDOrganization & {
-            idExtended: string,
-            source: string
-        },
+        subSegment: SheerIDSubSegment | null,
+        organization: SheerIDOrganization,
         active: boolean,
         startDate: Date,
         endDate: Date,
