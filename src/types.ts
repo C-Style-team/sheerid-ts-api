@@ -5,7 +5,7 @@ import {
     SheerIDSubSegment,
     SheerIDErrorMessage,
     SheerIDOrganizationType,
-} from "enum-types";
+} from "./enum-types";
 
 export type SheerIDVerificationMethod = "INSTANT";
 
