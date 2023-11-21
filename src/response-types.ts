@@ -12,18 +12,55 @@ import {
     SheerIDEstimatedReviewTime,
 } from "./enum-types";
 
-type SheerIDResponse = Readonly<{
-    verificationId: string,
-    currentStep: SheerIDVerificationStep,
-    submissionUrl: string,
-    errorIds?: SheerIDErrorId[],
+export type SheerIDResponse = Readonly<{
     segment?: SheerIDSegment,
     subsegment?: SheerIDSubSegment,
     locale?: string, // locale (en-US, ja-JP みたいな)のらいぶらりってある？
     country?: string,
+    errorIds?: SheerIDErrorId[],
 }>;
 
-export type SheerIDSuccessResponse = Readonly<{
+type SheerIDVerificationResponse = SheerIDResponse & Readonly<{
+    verificationId: string,
+    currentStep: SheerIDVerificationStep,
+    submissionUrl: string,
+}>;
+
+export type SheerIDNewVerificationResponse = SheerIDVerificationResponse;
+
+export type SheerIDNewAgeVerificationResponse = SheerIDVerificationResponse & Readonly<{
+    minAge: number,
+    maxAge: number,
+}>;
+
+export type SheerIDMilitaryVerificationResponse = SheerIDVerificationResponse & Readonly<{
+    availableStatuses: SheerIDMilitaryStatus[],
+}>;
+
+export type SheerIDNewFirstResponderVerificationResponse = SheerIDVerificationResponse & Readonly<{
+    availableStatuses: SheerIDFirstResponderStatus[],
+}>;
+
+export type SheerIDNewMedicalProfessionalVerificationResponse = SheerIDVerificationResponse & Readonly<{
+    availableStatuses: SheerIDMedicalProfessionalStatus[],
+}>;
+
+export type SheerIDNewEmploymentVerificationResponse = SheerIDVerificationResponse & Readonly<{
+    availableStatuses: "EMPLOYEE",
+}>;
+
+export type SheerIDNewMarketplaceVerificationResponse = SheerIDVerificationResponse & Readonly<{
+    verificationToken: string,
+}>;
+
+export type SheerIDDocumentReviewResponse = SheerIDVerificationResponse & Readonly<{
+    segment: SheerIDSegment,
+    rejectionReasons?: SheerIDRejectionReason[],
+    maxReviewTime?: SheerIDReviewTime,
+    documents?: Object,
+}>;
+
+export type SheerIDSuccessResponse = SheerIDResponse & Readonly<{
     verificationId: string,
     rewardCode: string, // deprecated
     currentStep: SheerIDVerificationStep,
@@ -31,51 +68,81 @@ export type SheerIDSuccessResponse = Readonly<{
     rewardData?: {
         rewardCode?: string,
     }
-    errorIds?: SheerIDErrorId[],
-    segment?: SheerIDSegment,
-    subSegment?: SheerIDSubSegment | null,
-    locale?: string,
-    country?: string,
     consumerInfoState?: SheerIDConsumerInfoState,
 }>;
 
-export type SheerIDNewVerificationResponse = SheerIDResponse;
-
-export type SheerIDNewAgeVerificationResponse = SheerIDResponse & Readonly<{
-    minAge: number,
-    maxAge: number,
-}>;
-
-export type SheerIDMilitaryVerificationResponse = SheerIDResponse & Readonly<{
-    availableStatuses: SheerIDMilitaryStatus[],
-}>;
-
-export type SheerIDNewFirstResponderVerificationResponse = SheerIDResponse & Readonly<{
-    availableStatuses: SheerIDFirstResponderStatus[],
-}>;
-
-export type SheerIDNewMedicalProfessionalVerificationResponse = SheerIDResponse & Readonly<{
-    availableStatuses: SheerIDMedicalProfessionalStatus[],
-}>;
-
-export type SheerIDNewEmploymentVerificationResponse = SheerIDResponse & Readonly<{
-    availableStatuses: "EMPLOYEE",
-}>;
-
-export type SheerIDNewMarketplaceVerificationResponse = SheerIDResponse & Readonly<{
-    verificationToken: string,
-}>;
-
-export type SheerIDDocumentReviewResponse = SheerIDResponse & Readonly<{
-    segment: SheerIDSegment,
-    rejectionReasons?: SheerIDRejectionReason[],
-    maxReviewTime?: SheerIDReviewTime,
-    documents?: Object,
-}>;
-
-export type SheerIDPendingResponse = Readonly<{
+export type SheerIDPendingResponse = SheerIDResponse & Readonly<{
     statusUrl: string,
     awaitingStep: string, // deprecated
-    maxReviewTime: SheerIDReviewTime,
-    estimatedReviewTime: SheerIDEstimatedReviewTime,
+    maxReviewTime?: SheerIDReviewTime,
+    estimatedReviewTime?: SheerIDEstimatedReviewTime,
+    lastResponse: Object, // verificationresponse recursive
+}>;
+
+export type SheerIDErrorResponse = SheerIDResponse & Readonly<{
+    verificationId: string,
+    currentStep: SheerIDVerificationStep,
+    errorIds: SheerIDErrorId[],
+    systemErrorMessage: string,
+    redirectUrl: string,
+    consolactionRewardCode?: string,
+}>;
+
+export type SheerIDSsoResponse = SheerIDResponse & Readonly<{
+    verificationId: string,
+    currentStep: SheerIDVerificationStep,
+    loginUrl: string,
+    cancelUrl: string,
+}>;
+
+export type SheerIDSMSLoopResponse = SheerIDResponse & Readonly<{
+    verificationId: string,
+    currentStep: SheerIDVerificationStep,
+    retryUrl: string,
+    submissionUrl: string,
+}>;
+
+export type SheerIDCancellableResponse = SheerIDResponse & Readonly<{
+    verificationId: string,
+    currentStep: SheerIDVerificationStep,
+    submissionUrl: string,
+    cancelUrl: string,
+}>;
+
+export type SheerIDEmailLoopResponse = SheerIDResponse & Readonly<{
+    verificationId: string,
+    currentStep: SheerIDVerificationStep,
+    submissionUrl: string,
+    cancelUrl?: string,
+    canResendEmailLoop: Boolean,
+}>;
+
+
+export type SheerIDConsolationResponse = SheerIDResponse & Readonly<{
+    verificationId: string,
+    currentStep: SheerIDVerificationStep,
+    consolationRewardCode: string,
+    redirectUrl: string,
+    // ErrorIds がないので SheerIDResponse を継承すべきではない
+}>;
+
+export type SheerIDOverrideResponse = SheerIDResponse & Readonly<{
+    verificationId: string,
+    currentStep: SheerIDVerificationStep,
+    submissionUrl: string,
+    // ErrorIds がないので SheerIDResponse を継承すべきではない
+}>;
+
+export type SheerIDNewCollectIdentifierResponse = SheerIDResponse & Readonly<{
+    verificationId: string,
+    currentStep: SheerIDVerificationStep,
+    submissionUrl: string,
+    identifierField: Object,
+}>;
+
+export type SheerIDCompleteAuthenticationResponse = SheerIDResponse & Readonly<{
+    verificationId: string,
+    currentStep: SheerIDVerificationStep,
+    submissionUrl: string,
+    cancelUrl?: string,
 }>;
