@@ -1,12 +1,14 @@
 import {
-    SheerIDCurrentStep,
-    SheerIDErrorIds,
     SheerIDSegment,
     SheerIDSubSegment,
     SheerIDErrorMessage,
     SheerIDOrganizationType,
     SheerIDVerificationMethod,
+    SheerIDRejectionReason,
+    SheerIDApprovingVerificationType,
 } from "./enum-types";
+
+import { SheerIDSuccessResponse } from "./response-types";
 
 export type SheerID401Error = Readonly<{
     systemErrorMessage: SheerIDErrorMessage,
@@ -58,24 +60,8 @@ export type SheerIDBuildInfo = Readonly<{
     buildTimestamp: string, // "2023-11-18T13:35:52Z"
 }>;
 
-// [GET Response] /rest/v2/verification/{verificationId}
-// [GET Response] /rest/v2/verification/program/{programId}/trackingId/{trackingId}
-export type SheerIDVerificationStatus = Readonly<{
-    verificationId: string,
-    currentStep: SheerIDCurrentStep,
-    errorIds: SheerIDErrorIds[], // なんだっけ
-    segment: SheerIDSegment,
-    subSegment: SheerIDSubSegment | null,
-    locale: string, // locale (en-US, ja-JP みたいな)のらいぶらりってある？
-    country: string,
-    rewardCode: string | null,
-    redirectUrl: URL | null,
-    rewardData: {
-        rewardCode?: string,
-    }
-}>;
-
 // [GET Response] /rest/v2/verification/{verificationId}/details
+// 200
 export type SheerIDVerificationStatusDetails = Readonly<{
     programId: string,
     trackingId?: string | null,
@@ -83,13 +69,13 @@ export type SheerIDVerificationStatusDetails = Readonly<{
     socialId: string,
     created: Date, // unix time
     updated: Date, // unix time
-    lastResponse: SheerIDVerificationStatus & {
+    lastResponse: SheerIDSuccessResponse & {
         consumerInfoState: string | null,
     },
     personInfo: SheerIDPersonInfo,
     docUploadRejectionCount: number,
-    docUploadRejectionReasons: any[],
-    verificationMethod: SheerIDVerificationMethod,
+    docUploadRejectionReasons: SheerIDRejectionReason[],
+    verificationMethod: SheerIDVerificationMethod | null,
     confirmedSegments?: {
         segment: SheerIDSegment,
         subSegment: SheerIDSubSegment | null,
@@ -98,4 +84,5 @@ export type SheerIDVerificationStatusDetails = Readonly<{
         startDate: Date,
         endDate: Date,
     }
+    approvingVerificationTypes?: SheerIDApprovingVerificationType,
 }>;

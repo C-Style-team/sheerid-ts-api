@@ -1,9 +1,13 @@
 export type SheerIDVerificationMethod =
-    | null
     | "INSTANT"
     | "MANUAL";
 
-export type SheerIDCurrentStep =
+export type SheerIDConsumerInfoState =
+    | "consumerNotFound"
+    | "consumerFoundNewFieldsAvailable"
+    | "consumerFoundNotActionable";
+
+export type SheerIDVerificationStep =
     | "success"
     | "error"
     | "pending"
@@ -30,7 +34,7 @@ export type SheerIDCurrentStep =
     | "consolation"
     | "override";
 
-export type SheerIDErrorIds =
+export type SheerIDErrorId =
     | "internalServerError"
     | "noProgram"
     | "invalidProgram"
@@ -171,8 +175,7 @@ export type SheerIDErrorMessage =
     | `Program with ID '${string}' not found`
     | `No reward codes remaining for program with ID '${string}'`;
 
-
-export type SheerIDDocUploadRejectionReason =
+export type SheerIDRejectionReason =
     | "CUSTOM_VALUE_OTHER"
     | "DOCUMENT_DATE_OTHER"
     | "DOCUMENT_EXPIRED"
@@ -224,3 +227,49 @@ export type SheerIDDocUploadRejectionReason =
     | "MISMATCH_EBT_CARD_NUMBER"
     | "INSUFFICIENT_EBT_CARD_NUMBER"
     | "EBT_CARD_NUMBER_OTHER";
+
+export type SheerIDApprovingVerificationType =
+    | "authoritative"
+    | "domainValidation"
+    | "documentReview"
+    | "emailLoop"
+    | "honorSystem"
+    | "other"
+    | "predictive"
+    | "smsLoop"
+    | "sso";
+
+export type SheerIDMilitaryStatus =
+    | "ACTIVE_DUTY"
+    | "VETERAN"
+    | "RESERVIST"
+    | "MILITARY_RETIREE"
+    | "MILITARY_FAMILY"
+    | "GOLD_STAR_FAMILY";
+
+export type SheerIDFirstResponderStatus =
+    | "POLICE"
+    | "EMT"
+    | "FIREFIGHTER"
+    | "SEARCH_AND_RESCUE";
+
+export type SheerIDMedicalProfessionalStatus =
+    | "NURSE"
+    | "DOCTOR"
+    | "DENTIST"
+    | "PHARMACIST"
+    | "OTHER_HEALTH_WORKER";
+
+export type SheerIDReviewTime =
+    | "2_MIN"
+    | "20_MIN"
+    | "2_HRS"
+    | "24_HRS"
+    | "2_DAY"
+    | "3_DAY";
+
+export type SheerIDEstimatedReviewTime =
+    | "A_FEW_MINUTES"
+    | "A_HALF_HOUR"
+    | "A_FEW_HOURS"
+    | "A_FEW_DAYS";
