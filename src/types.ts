@@ -5,9 +5,8 @@ import {
     SheerIDSubSegment,
     SheerIDErrorMessage,
     SheerIDOrganizationType,
+    SheerIDVerificationMethod,
 } from "./enum-types";
-
-export type SheerIDVerificationMethod = "INSTANT";
 
 export type SheerID401Error = Readonly<{
     systemErrorMessage: SheerIDErrorMessage,
@@ -64,7 +63,7 @@ export type SheerIDBuildInfo = Readonly<{
 export type SheerIDVerificationStatus = Readonly<{
     verificationId: string,
     currentStep: SheerIDCurrentStep,
-    errorIds: any[], // なんだっけ
+    errorIds: SheerIDErrorIds[], // なんだっけ
     segment: SheerIDSegment,
     subSegment: SheerIDSubSegment | null,
     locale: string, // locale (en-US, ja-JP みたいな)のらいぶらりってある？
@@ -79,8 +78,8 @@ export type SheerIDVerificationStatus = Readonly<{
 // [GET Response] /rest/v2/verification/{verificationId}/details
 export type SheerIDVerificationStatusDetails = Readonly<{
     programId: string,
-    trackingId: string | null,
-    personId: string,
+    trackingId?: string | null,
+    personId?: string,
     socialId: string,
     created: Date, // unix time
     updated: Date, // unix time
@@ -91,7 +90,7 @@ export type SheerIDVerificationStatusDetails = Readonly<{
     docUploadRejectionCount: number,
     docUploadRejectionReasons: any[],
     verificationMethod: SheerIDVerificationMethod,
-    confirmedSegments: {
+    confirmedSegments?: {
         segment: SheerIDSegment,
         subSegment: SheerIDSubSegment | null,
         organization: SheerIDOrganization,
