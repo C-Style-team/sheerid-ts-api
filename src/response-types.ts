@@ -1,16 +1,23 @@
 import {
+    SheerIDApprovingVerificationType,
     SheerIDConsumerInfoState,
-    SheerIDVerificationStep,
     SheerIDErrorId,
-    SheerIDSegment,
-    SheerIDSubSegment,
-    SheerIDMilitaryStatus,
+    SheerIDEstimatedReviewTime,
     SheerIDFirstResponderStatus,
+    SheerIDMilitaryStatus,
     SheerIDMedicalProfessionalStatus,
     SheerIDRejectionReason,
     SheerIDReviewTime,
-    SheerIDEstimatedReviewTime,
+    SheerIDSegment,
+    SheerIDSubSegment,
+    SheerIDVerificationMethod,
+    SheerIDVerificationStep,
 } from "./enum-types";
+
+import {
+    SheerIDAllPersonInfo,
+    SheerIDOrganization
+} from "./person-types";
 
 export type SheerIDResponse = Readonly<{
     segment?: SheerIDSegment,
@@ -145,4 +152,50 @@ export type SheerIDCompleteAuthenticationResponse = SheerIDResponse & Readonly<{
     currentStep: SheerIDVerificationStep,
     submissionUrl: string,
     cancelUrl?: string,
+}>;
+
+export type SheerIDAllResponse =
+    | SheerIDSuccessResponse
+    | SheerIDNewVerificationResponse
+    | SheerIDNewAgeVerificationResponse
+    // | SheerIDNewMilitaryResponse // (not implemented) 
+    | SheerIDNewFirstResponderVerificationResponse
+    | SheerIDNewMedicalProfessionalVerificationResponse
+    | SheerIDNewEmploymentVerificationResponse
+    | SheerIDNewMarketplaceVerificationResponse
+    | SheerIDDocumentReviewResponse
+    | SheerIDPendingResponse
+    | SheerIDErrorResponse
+    | SheerIDSsoResponse
+    | SheerIDSMSLoopResponse
+    | SheerIDCancellableResponse
+    | SheerIDEmailLoopResponse
+    | SheerIDConsolationResponse
+    | SheerIDOverrideResponse
+    | SheerIDNewCollectIdentifierResponse
+    | SheerIDCompleteAuthenticationResponse;
+
+// [GET Response] /rest/v2/verification/{verificationId}/details
+// 200
+export type SheerIDVerificationStatusDetailsResponse = Readonly<{
+    programId: string,
+    trackingId?: string | null,
+    personId?: string,
+    socialId: string,
+    created: number, // unix time
+    updated: number, // unix time
+    lastResponse: SheerIDAllResponse,
+    personInfo: SheerIDAllPersonInfo,
+    docUploadRejectionCount: number,
+    docUploadRejectionReasons: SheerIDRejectionReason[],
+    verificationMethod: SheerIDVerificationMethod | null,
+    confirmedSegments?: {
+        segment: SheerIDSegment,
+        subSegment: SheerIDSubSegment | null,
+        organization: SheerIDOrganization,
+        active: boolean,
+        startDate: Date,
+        endDate: Date,
+    }
+    approvingVerificationTypes?: SheerIDApprovingVerificationType,
 }>;

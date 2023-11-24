@@ -260,6 +260,24 @@ export type SheerIDMedicalProfessionalStatus =
     | "PHARMACIST"
     | "OTHER_HEALTH_WORKER";
 
+export type SheerIDLicensedProfessionalStatus =
+    | "LICENSED_COSMETOLOGIST"
+    | "LICENSED_REAL_ESTATE_AGENT"
+    | "VETERINARIAN"
+    | "CHILD_CARE_WORKER"
+    | "LIBRARIAN"
+    | "INTERIOR_DESIGNER"
+    | "ARCHITECT"
+    | "GENERAL_CONTRACTOR";
+
+export type SheerIDMoverStatus =
+    | "HOME_BUYER"
+    | "OTHER_MOVER";
+
+export type SheerIDLowIncomeStatus =
+    | "SNAP_BENEFITS"
+    | "OTHER_GOVERNMENT_ASSISTANCE";
+
 export type SheerIDReviewTime =
     | "2_MIN"
     | "20_MIN"
