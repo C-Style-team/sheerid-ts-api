@@ -16,10 +16,11 @@ export class SheerIDRequest<T> {
         return result;
     }
 
-    public set(key: string, value: any): void {
+    public set(key: string, value: any): this {
         if (typeof value !== 'undefined') {
             this.m_params.set(key, value);
         }
+        return this;
     }
 
     public endpoint(endpoint: `/${string}`): this {
