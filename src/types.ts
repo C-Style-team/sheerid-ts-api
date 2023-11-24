@@ -62,7 +62,7 @@ export type SheerIDBuildInfo = Readonly<{
 
 // [GET Response] /rest/v2/verification/{verificationId}/details
 // 200
-export type SheerIDVerificationStatusDetails = Readonly<{
+export type SheerIDVerificationStatusDetailsResponse = Readonly<{
     programId: string,
     trackingId?: string | null,
     personId?: string,
