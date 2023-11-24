@@ -4,7 +4,7 @@ import {
     SheerIDLowIncomeStatus,
     SheerIDMedicalProfessionalStatus,
     SheerIDMoverStatus
-} from "./enum-types"
+} from "./enum"
 
 export type SheerIDOrganization = Readonly<{
     id: number,

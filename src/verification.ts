@@ -1,6 +1,6 @@
 import { SheerID } from "./base";
-import { SheerIDVerificationStatusDetailsResponse, SheerIDSuccessResponse } from "./response-types";
-import { SheerIDVerificationMethod } from "./enum-types";
+import { SheerIDVerificationStatusDetailsResponse, SheerIDSuccessResponse } from "./types/response";
+import { SheerIDVerificationMethod } from "./types/enum";
 import { SheerIDRequest } from "./request";
 
 type Ids = {

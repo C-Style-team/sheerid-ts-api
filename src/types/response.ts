@@ -12,12 +12,12 @@ import {
     SheerIDSubSegment,
     SheerIDVerificationMethod,
     SheerIDVerificationStep,
-} from "./enum-types";
+} from "./enum";
 
 import {
     SheerIDAllPersonInfo,
     SheerIDOrganization
-} from "./person-types";
+} from "./person";
 
 export type SheerIDResponse = Readonly<{
     segment?: SheerIDSegment,
