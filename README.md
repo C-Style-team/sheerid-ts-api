@@ -6,11 +6,13 @@ This library is SheerID REST API wrapper for JavaScript / TypeScript. This libra
 
 <details>
 <summary>Info</summary>
+
 - [ ] Retrieve build information
 </details>
 
 <details>
 <summary>Verification</summary>
+
 - [x] Submit * data against program
 - [x] Get verification status
 - [x] Get verification status by Tracking ID
