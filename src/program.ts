@@ -3,9 +3,10 @@ import { SheerIDRequest } from "./request";
 import { SheerIDVerificationStep } from "./types/enum"
 import { SheerIDOrganization } from "./types/person";
 
-export class SheerIDProgram {
+export class SheerIDProgram extends SheerID {
     programId: string;
-    constructor(programId: string) {
+    constructor(apiToken: string, programId: string) {
+        super(apiToken);
         this.programId = programId;
     }
 
@@ -23,7 +24,7 @@ export class SheerIDProgram {
     }
 
     /**
-     * @deprecated This endpoint has been deprecated, please use orgSearchUrl in ProgramVerificationConfig instead.
+     * @deprecated This endpoint has been deprecated, please use `orgSearchUrl` in ProgramVerificationConfig instead.
      */
     public getOrganizaion(name: string, country?: string) {
         return new SheerIDRequest<SheerIDOrganization>()
