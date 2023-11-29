@@ -2,7 +2,7 @@ import { SheerID } from "./base";
 
 import { SheerIDSuccessResponse, SheerIDVerificationStatusDetailsResponse } from "./types/response";
 
-import { SheerIDVerificationMethod } from "./types/enum";
+import { SheerIDMilitaryStatus, SheerIDVerificationMethod } from "./types/enum";
 
 import { SheerIDRequest } from "./request";
 
@@ -222,6 +222,15 @@ export class SheerIDVerification extends SheerID {
             .endpoint(`/verification/${this.verificationId}/step/collectStudentPersonalInfo`)
             .set("method", "POST")
             .set("body", info)
+            .send();
+    }
+
+    // Submit military status
+    public submitMilitaryStatus(status: SheerIDMilitaryStatus): Promise<SheerIDSuccessResponse> {
+        return new SheerIDRequest<SheerIDSuccessResponse>()
+            .endpoint(`/verification/${this.verificationId}/step/collectMilitaryStatus`)
+            .set("method", "POST")
+            .set("body", { "status": status })
             .send();
     }
 
