@@ -257,3 +257,55 @@ export type SheerIDLowIncomeInfo = {
     ebtCardNumber?: string,
     metadata?: object,
 }
+
+export type SheerIDDriverLicenseInfo = {
+    firstName: string,
+    lastName: string,
+    state: string,
+    driverLicenseNumber: string,
+    email: string,
+    phoneNumber?: string,
+    locale?: string,
+    deviceFingerprintHash?: string,
+    ipAddress?: string, // deprecated
+    ipAddressExtended?: string,
+    metadata?: object
+}
+
+export type SheerIDGeneralIdentityInfo = {
+    firstName: string,
+    lastName: string,
+    address1: string,
+    city: string,
+    state: string,
+    postalCode: string,
+    email: string,
+    birthDate?: string,
+    phoneNumber?: string,
+    locale?: string,
+    deviceFingerprintHash?: string,
+    ipAddress?: string, // deprecated
+    ipAddressExtended?: string,
+    metadata?: object,
+}
+
+export type SheerIDMemberInfo = {
+    firstName: string,
+    lastName: string,
+    email: string,
+    organization: SheerIDOrganization,
+    deviceFingerprintHash?: string,
+    birthDate?: string,
+    memberId?: string,
+    address1?: string,
+    city?: string,
+    state?: string,
+    postalCode?: string,
+    country?: string,
+    phoneNumber?: string,
+    locale?: string,
+    ipAddress?: string, // deprecated
+    ipAddressExtended?: string,
+    externalUserId: string,
+    metadata?: object,
+}

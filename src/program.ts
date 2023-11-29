@@ -1,7 +1,7 @@
 import { SheerID } from "./base";
 import { SheerIDRequest } from "./request";
 import { SheerIDVerificationStep } from "./types/enum"
-import { SheerIDOrganization } from "./types/person";
+import { SheerIDOrganization } from "./types/info";
 
 export class SheerIDProgram extends SheerID {
     programId: string;

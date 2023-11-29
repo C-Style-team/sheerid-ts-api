@@ -17,7 +17,7 @@ import {
 import {
     SheerIDAllPersonInfo,
     SheerIDOrganization
-} from "./person";
+} from "./info";
 
 export type SheerIDResponse = Readonly<{
     segment?: SheerIDSegment,
