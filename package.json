@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Kyure-A/sheerid.js#readme",
   "devDependencies": {
+    "@sniptt/monads": "^0.5.10",
     "@types/node": "^20.9.2",
     "typescript": "^5.2.2"
   }
