@@ -1,6 +1,8 @@
+import { Result, Ok, Err } from "@sniptt/monads";
+
 import { SheerID } from "./base";
 
-import { SheerIDSuccessResponse, SheerIDVerificationStatusDetailsResponse } from "./types/response";
+import { SheerIDErrorResponse, SheerIDSuccessResponse, SheerIDVerificationStatusDetailsResponse } from "./types/response";
 
 import { SheerIDMilitaryStatus, SheerIDVerificationMethod } from "./types/enum";
 
@@ -48,8 +50,8 @@ export class SheerIDVerification extends SheerID {
     }
 
     // Submit student data against program
-    public submitStudentDataByProgramId(info: SheerIDStudentInfo): Promise<SheerIDSuccessResponse> {
-        return new SheerIDRequest<SheerIDSuccessResponse>()
+    public submitStudentDataByProgramId(info: SheerIDStudentInfo) {
+        return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
             .endpoint(`/verification/program/${this.programId}/step/collectStudentPersonalInfo`)
             .set("method", "POST")
             .set("body", info)
@@ -57,8 +59,8 @@ export class SheerIDVerification extends SheerID {
     }
 
     // Submit active military data against program
-    public submitActiveMilitaryDataByProgramId(info: SheerIDActiveMilitaryInfo): Promise<SheerIDSuccessResponse> {
-        return new SheerIDRequest<SheerIDSuccessResponse>()
+    public submitActiveMilitaryDataByProgramId(info: SheerIDActiveMilitaryInfo) {
+        return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
             .endpoint(`/verification/program/${this.programId}/step/collectActiveMilitaryPersonalInfo`)
             .set("method", "POST")
             .set("body", info)
@@ -66,8 +68,8 @@ export class SheerIDVerification extends SheerID {
     }
 
     // Submit inactive military data against program
-    public submitInactiveMilitaryDataByProgramId(info: SheerIDInactiveMilitaryInfo): Promise<SheerIDSuccessResponse> {
-        return new SheerIDRequest<SheerIDSuccessResponse>()
+    public submitInactiveMilitaryDataByProgramId(info: SheerIDInactiveMilitaryInfo) {
+        return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
             .endpoint(`/verification/program/${this.programId}/step/collectInactiveMilitaryPersonalInfo`)
             .set("method", "POST")
             .set("body", info)
@@ -75,8 +77,8 @@ export class SheerIDVerification extends SheerID {
     }
 
     // Submit teacher data against program
-    public submitTeacherDataByProgramId(info: SheerIDTeacherInfo): Promise<SheerIDSuccessResponse> {
-        return new SheerIDRequest<SheerIDSuccessResponse>()
+    public submitTeacherDataByProgramId(info: SheerIDTeacherInfo) {
+        return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
             .endpoint(`/verification/program/${this.programId}/step/collectTeacherPersonalInfo`)
             .set("method", "POST")
             .set("body", info)
@@ -84,8 +86,8 @@ export class SheerIDVerification extends SheerID {
     }
 
     // Submit senior data against program
-    public submitSeniorDataByProgramId(info: SheerIDSeniorInfo): Promise<SheerIDSuccessResponse> {
-        return new SheerIDRequest<SheerIDSuccessResponse>()
+    public submitSeniorDataByProgramId(info: SheerIDSeniorInfo) {
+        return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
             .endpoint(`/verification/program/${this.programId}/step/collectSeniorPersonalInfo`)
             .set("method", "POST")
             .set("body", info)
@@ -93,8 +95,8 @@ export class SheerIDVerification extends SheerID {
     }
 
     // Submit age data against program
-    public submitAgeDataByProgramId(info: SheerIDAgeInfo): Promise<SheerIDSuccessResponse> {
-        return new SheerIDRequest<SheerIDSuccessResponse>()
+    public submitAgeDataByProgramId(info: SheerIDAgeInfo) {
+        return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
             .endpoint(`/verification/program/${this.programId}/step/collectAgePersonalInfo`)
             .set("method", "POST")
             .set("body", info)
@@ -102,8 +104,8 @@ export class SheerIDVerification extends SheerID {
     }
 
     // Submit first responder data against program
-    public submitFirstResponderDataByProgramId(info: SheerIDFirstResponderInfo): Promise<SheerIDSuccessResponse> {
-        return new SheerIDRequest<SheerIDSuccessResponse>()
+    public submitFirstResponderDataByProgramId(info: SheerIDFirstResponderInfo) {
+        return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
             .endpoint(`/verification/program/${this.programId}/step/collectFirstResponderPersonalInfo`)
             .set("method", "POST")
             .set("body", info)
@@ -111,8 +113,8 @@ export class SheerIDVerification extends SheerID {
     }
 
     // Submit licensed professional data against program
-    public submitLicensedProfessionalDataByProgramId(info: SheerIDLicensedProfessionalInfo): Promise<SheerIDSuccessResponse> {
-        return new SheerIDRequest<SheerIDSuccessResponse>()
+    public submitLicensedProfessionalDataByProgramId(info: SheerIDLicensedProfessionalInfo) {
+        return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
             .endpoint(`/verification/program/${this.programId}/step/collectLicensedProfessionalPersonalInfo`)
             .set("method", "POST")
             .set("body", info)
@@ -120,8 +122,8 @@ export class SheerIDVerification extends SheerID {
     }
 
     // Submit mover data against program
-    public submitMoverDataByProgramId(info: SheerIDMoverInfo): Promise<SheerIDSuccessResponse> {
-        return new SheerIDRequest<SheerIDSuccessResponse>()
+    public submitMoverDataByProgramId(info: SheerIDMoverInfo) {
+        return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
             .endpoint(`/verification/program/${this.programId}/step/collectMoverPersonalInfo`)
             .set("method", "POST")
             .set("body", info)
@@ -129,8 +131,8 @@ export class SheerIDVerification extends SheerID {
     }
 
     // Submit medical professional data against program
-    public submitMedicalProfessionalDataByProgramId(info: SheerIDMedicalProfessionalInfo): Promise<SheerIDSuccessResponse> {
-        return new SheerIDRequest<SheerIDSuccessResponse>()
+    public submitMedicalProfessionalDataByProgramId(info: SheerIDMedicalProfessionalInfo) {
+        return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
             .endpoint(`/verification/program/${this.programId}/step/collectMedicalProfessionalPersonalInfo`)
             .set("method", "POST")
             .set("body", info)
@@ -138,8 +140,8 @@ export class SheerIDVerification extends SheerID {
     }
 
     // Submit driver license data against program
-    public submitDriverLicenseDataByProgramId(info: SheerIDDriverLicenseInfo): Promise<SheerIDSuccessResponse> {
-        return new SheerIDRequest<SheerIDSuccessResponse>()
+    public submitDriverLicenseDataByProgramId(info: SheerIDDriverLicenseInfo) {
+        return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
             .endpoint(`/verification/program/${this.programId}/step/collectDriverLicensePersonalInfo`)
             .set("method", "POST")
             .set("body", info)
@@ -147,8 +149,8 @@ export class SheerIDVerification extends SheerID {
     }
 
     // Submit general identity data against program
-    public submitGeneralIdentityDataByProgramId(info: SheerIDGeneralIdentityInfo): Promise<SheerIDSuccessResponse> {
-        return new SheerIDRequest<SheerIDSuccessResponse>()
+    public submitGeneralIdentityDataByProgramId(info: SheerIDGeneralIdentityInfo) {
+        return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
             .endpoint(`/verification/program/${this.programId}/step/collectGeneralIdentityPersonalInfo`)
             .set("method", "POST")
             .set("body", info)
@@ -156,8 +158,8 @@ export class SheerIDVerification extends SheerID {
     }
 
     // Submit employee data against program
-    public submitEmployeeDataByProgramId(info: SheerIDEmployeeInfo): Promise<SheerIDSuccessResponse> {
-        return new SheerIDRequest<SheerIDSuccessResponse>()
+    public submitEmployeeDataByProgramId(info: SheerIDEmployeeInfo) {
+        return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
             .endpoint(`/verification/program/${this.programId}/step/collectEmployeePersonalInfo`)
             .set("method", "POST")
             .set("body", info)
@@ -165,7 +167,7 @@ export class SheerIDVerification extends SheerID {
     }
 
     // Submit member data against program
-    public submitMemberDataByProgramId(info: SheerIDMemberInfo): Promise<SheerIDSuccessResponse> {
+    public submitMemberDataByProgramId(info: SheerIDMemberInfo) {
         return new SheerIDRequest<SheerIDSuccessResponse>()
             .endpoint(`/verification/program/${this.programId}/step/collectMemberPersonalInfo`)
             .set("method", "POST")
@@ -174,8 +176,8 @@ export class SheerIDVerification extends SheerID {
     }
 
     // Submit low income personal data against program
-    public submitLowIncomeDataByProgramId(info: SheerIDLowIncomeInfo): Promise<SheerIDSuccessResponse> {
-        return new SheerIDRequest<SheerIDSuccessResponse>()
+    public submitLowIncomeDataByProgramId(info: SheerIDLowIncomeInfo) {
+        return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
             .endpoint(`/verification/program/${this.programId}/step/collectLowIncomePersonalInfo`)
             .set("method", "POST")
             .set("body", info)
@@ -183,24 +185,24 @@ export class SheerIDVerification extends SheerID {
     }
 
     // Get verification status
-    public getStatus(): Promise<SheerIDSuccessResponse> {
-        return new SheerIDRequest<SheerIDSuccessResponse>()
+    public getStatus() {
+        return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
             .endpoint(`/verification/${this.verificationId}`)
             .set("method", "GET")
             .send();
     }
 
     // Get verification status by Tracking ID
-    public getStatusByTrackingId(): Promise<SheerIDSuccessResponse> {
-        return new SheerIDRequest<SheerIDSuccessResponse>()
+    public getStatusByTrackingId() {
+        return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
             .endpoint(`/verification/program/${this.programId}/trackingId/${this.trackingId}`)
             .set("method", "GET")
             .send();
     }
 
     // Get the 10 most recent verification statuses by Tracking ID
-    public getStatusesByTrackingId(): Promise<Array<SheerIDSuccessResponse>> {
-        return new SheerIDRequest<Array<SheerIDSuccessResponse>>()
+    public getStatusesByTrackingId(): Promise<Array<SheerIDSuccessResponse | SheerIDErrorResponse>> {
+        return new SheerIDRequest<Array<SheerIDSuccessResponse | SheerIDErrorResponse>>()
             .endpoint(`/verification/program/${this.programId}/trackingId/${this.trackingId}/history`)
             .set("method", "GET")
             .set("headers", { "Authorization": `Bearer ${this.apiToken}` })
@@ -208,8 +210,8 @@ export class SheerIDVerification extends SheerID {
     }
 
     // Get verification details
-    public getStatusDetails(): Promise<SheerIDVerificationStatusDetailsResponse> {
-        return new SheerIDRequest<SheerIDVerificationStatusDetailsResponse>()
+    public getStatusDetails(): Promise<SheerIDVerificationStatusDetailsResponse | SheerIDErrorResponse> {
+        return new SheerIDRequest<SheerIDVerificationStatusDetailsResponse | SheerIDErrorResponse>()
             .endpoint(`/verification/${this.verificationId}/details`)
             .set("method", "GET")
             .set("headers", { "Authorization": `Bearer ${this.apiToken}` })
@@ -217,8 +219,8 @@ export class SheerIDVerification extends SheerID {
     }
 
     // Submit student data
-    public submitStudentData(info: SheerIDStudentInfo): Promise<SheerIDSuccessResponse> {
-        return new SheerIDRequest<SheerIDSuccessResponse>()
+    public submitStudentData(info: SheerIDStudentInfo) {
+        return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
             .endpoint(`/verification/${this.verificationId}/step/collectStudentPersonalInfo`)
             .set("method", "POST")
             .set("body", info)
@@ -226,8 +228,8 @@ export class SheerIDVerification extends SheerID {
     }
 
     // Submit military status
-    public submitMilitaryStatus(status: SheerIDMilitaryStatus): Promise<SheerIDSuccessResponse> {
-        return new SheerIDRequest<SheerIDSuccessResponse>()
+    public submitMilitaryStatus(status: SheerIDMilitaryStatus) {
+        return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
             .endpoint(`/verification/${this.verificationId}/step/collectMilitaryStatus`)
             .set("method", "POST")
             .set("body", { "status": status })
@@ -235,8 +237,8 @@ export class SheerIDVerification extends SheerID {
     }
 
     // Submit active military data
-    public submitActiveMilitaryData(info: SheerIDActiveMilitaryInfo): Promise<SheerIDSuccessResponse> {
-        return new SheerIDRequest<SheerIDSuccessResponse>()
+    public submitActiveMilitaryData(info: SheerIDActiveMilitaryInfo) {
+        return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
             .endpoint(`/verification/${this.verificationId}/step/collectActiveMilitaryPersonalInfo`)
             .set("method", "POST")
             .set("body", info)
@@ -244,8 +246,8 @@ export class SheerIDVerification extends SheerID {
     }
 
     // Submit inactive military data
-    public submitInactiveMilitaryData(info: SheerIDInactiveMilitaryInfo): Promise<SheerIDSuccessResponse> {
-        return new SheerIDRequest<SheerIDSuccessResponse>()
+    public submitInactiveMilitaryData(info: SheerIDInactiveMilitaryInfo) {
+        return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
             .endpoint(`/verification/${this.verificationId}/step/collectInactiveMilitaryPersonalInfo`)
             .set("method", "POST")
             .set("body", info)
@@ -253,8 +255,8 @@ export class SheerIDVerification extends SheerID {
     }
 
     // Get organization details
-    public getOrganizationDetails(): Promise<SheerIDOrganizationDetails> {
-        return new SheerIDRequest<SheerIDOrganizationDetails>()
+    public getOrganizationDetails(): Promise<SheerIDOrganizationDetails | SheerIDErrorResponse> {
+        return new SheerIDRequest<SheerIDOrganizationDetails | SheerIDErrorResponse>()
             .endpoint(`/organization/${this.verificationId}`)
             .set("method", "GET")
             .send();
