@@ -291,3 +291,18 @@ export type SheerIDEstimatedReviewTime =
     | "A_HALF_HOUR"
     | "A_FEW_HOURS"
     | "A_FEW_DAYS";
+
+export type SheerIDOfferType =
+    | "staticCode"
+    | "autogenCode"
+    | "noCode"
+    | "rewardPool";
+
+export type SheerIDRewardDisplay =
+    | "TEXT"
+    | "QR"
+    | "ITF"
+    | "UPC_A"
+    | "CODE_128"
+    | "PDF417";
+

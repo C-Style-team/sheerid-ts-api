@@ -34,3 +34,7 @@ export type SheerIDBuildInfo = Readonly<{
     puppetGitCommit: string,
     buildTimestamp: string, // "2023-11-18T13:35:52Z"
 }>;
+
+export type ExcludeSpecificProperties<T, K extends keyof T> = {
+    [P in Exclude<keyof T, K>]: string;
+};

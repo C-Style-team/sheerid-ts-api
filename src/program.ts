@@ -2,6 +2,7 @@ import { SheerID } from "./base";
 import { SheerIDRequest } from "./request";
 import { SheerIDVerificationStep } from "./types/enum"
 import { SheerIDOrganization } from "./types/info";
+import { SheerIDProgramThemeResponse } from "./types/response";
 
 export class SheerIDProgram extends SheerID {
     programId: string;
@@ -12,7 +13,7 @@ export class SheerIDProgram extends SheerID {
 
     // response をかくのがだるい
     public getProgramTheme() {
-        return new SheerIDRequest<>()
+        return new SheerIDRequest<SheerIDProgramThemeResponse>()
             .endpoint(`/program/${this.programId}/theme`)
             .send();
     }

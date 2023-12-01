@@ -1,3 +1,4 @@
+import { ExcludeSpecificProperties } from "./common";
 import {
     SheerIDApprovingVerificationType,
     SheerIDConsumerInfoState,
@@ -12,6 +13,9 @@ import {
     SheerIDSubSegment,
     SheerIDVerificationMethod,
     SheerIDVerificationStep,
+    SheerIDOrganizationType,
+    SheerIDOfferType,
+    SheerIDRewardDisplay,
 } from "./enum";
 
 import {
@@ -198,4 +202,111 @@ export type SheerIDVerificationStatusDetailsResponse = Readonly<{
         endDate: Date,
     }
     approvingVerificationTypes?: SheerIDApprovingVerificationType,
+}>;
+
+export type SheerIDProgramThemeResponse = Readonly<{
+    intl: { // Internationalization
+        locale: string,
+        messages: {
+            companyName: string,
+            lowRewardPool: string,
+            optIn: "The message shown when the marketing opt-in checkbox is presented" | string,
+            step: { // StepMessages
+                personalInfo: { // PersonalInfoMessages
+                    title: string,
+                    subtitle: string,
+                },
+                docUpload: { // DocUploadMessages
+                    title: string,
+                    subtitle: string,
+                },
+                success: { // SuccessMessages
+                    title: string,
+                    subtitle: string,
+                    redirectButtonText: string,
+                    redirectUrl?: string, // deprecated
+                    emailNotification?: string,
+                } & ExcludeSpecificProperties<any, "title" | "subtitle" | "redirectButtonText" | "redirectUrl" | "emailNotification">,
+                pending: { // PendingMessages
+                    titleCountdown: string,
+                    titleReview: string,
+                    subtitleCountdown: string,
+                    subtitleReview: string,
+                } & ExcludeSpecificProperties<any, "titleCountdown" | "titleReview" | "subtitleCountdown" | "subtitleReview">,
+                error: { // ErrorMessages
+                    errorId: {
+                        property_name?: { // ErrorIdMessages
+                            title: string,
+                            buttonText: string,
+                        }
+                    }
+                },
+                consolation?: { // ConsolationMessages
+                    title?: string,
+                    subtitle?: string,
+                    verificationOnly?: string,
+                } & ExcludeSpecificProperties<any, "title" | "subtitle" | "verificationOnly">,
+                emailLoop?: {
+                    title?: string,
+                    subtitleWithoutEmail?: string,
+                    skipEmail?: string,
+                } & ExcludeSpecificProperties<any, "title" | "subtitleWithoutEmail" | "skipEmail">
+            },
+            errorId: {
+                [property_name: string]: string,
+            }
+        },
+        customCss: string,
+        logoUrl: string,
+        privacyPolicyUrl: string,
+        isTestMode: boolean,
+        config: SheerIDProgramVerificationConfig,
+        smsLoopEnabled: boolean,
+        docUploadEnabled: boolean,
+        emailLoopEnabled: boolean,
+        ssoEnabled: boolean,
+        overrideEnabled: boolean,
+        remaiingRewardCodes: number,
+        openOrgSearchEnabled?: boolean,
+        isSmsNotifierConfigured?: boolean,
+        threatMetrixEnabled?: boolean,
+        ipqsDeviceFingerprintEnabled?: boolean,
+        strictMilitaryValidationEnabled: boolean,
+    }
+}>;
+
+export type SheerIDProgramVerificationConfig = Readonly<{
+    countries: Array<string>,
+    locales: Array<string>,
+    maxReviewTime: SheerIDReviewTime,
+    estimatedReviewTime: SheerIDEstimatedReviewTime,
+    marketConsent: { // marketconsent
+        enabled: boolean,
+        required: boolean,
+        message: boolean,
+    }
+    customMetadata: { // custommetadata
+        enabled: boolean,
+        keys: Array<string>
+    },
+    customFaqLink: string,
+    orgSearchUrl: string,
+    orgTypes: SheerIDOrganizationType,
+    excludedOrganizationIds: number,
+    brandInfo: {
+        faqUrl: string,
+        emailAddress: string,
+        phoneNumber: string,
+    },
+    offerType: SheerIDOfferType,
+    orgRemoteSource?: "EMPLOYER",
+    orgSearchCountryTags?: {
+        [property_name: string]: Array<string>
+    }
+    rewardDisplay?: SheerIDRewardDisplay,
+    segment?: SheerIDSegment,
+    maxAge: number,
+    minAge: number,
+    onfidoReportNames: Array<string>,
+    onfidoIncludedCountries: Array<string>,
 }>;
