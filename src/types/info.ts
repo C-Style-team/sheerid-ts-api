@@ -309,3 +309,14 @@ export type SheerIDMemberInfo = {
     externalUserId: string,
     metadata?: object,
 }
+
+export type SheerIDAddSchoolInfo = {
+    firstName: string,
+    lastName: string,
+    email: string,
+    programId: string,
+    schoolName: string,
+    schoolDomain: string,
+    schoolCountry: string,
+    trackingId?: string
+}

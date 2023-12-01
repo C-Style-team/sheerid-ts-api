@@ -310,3 +310,9 @@ export type SheerIDProgramVerificationConfig = Readonly<{
     onfidoReportNames: Array<string>,
     onfidoIncludedCountries: Array<string>,
 }>;
+
+export type SheerIDSchoolSearchingResponse = Readonly<{
+    eligible: Array<SheerIDOrganization>,
+    ineligible: Array<SheerIDOrganization>,
+    errorIds: Array<SheerIDErrorId>
+}>;
