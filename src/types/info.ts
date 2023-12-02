@@ -1,9 +1,12 @@
 import {
+    SheerIDCommunity,
     SheerIDFirstResponderStatus,
     SheerIDLicensedProfessionalStatus,
     SheerIDLowIncomeStatus,
     SheerIDMedicalProfessionalStatus,
-    SheerIDMoverStatus
+    SheerIDMoverStatus,
+    SheerIDRewardEligibility,
+    SheerIDVerificationModeInclusion,
 } from "./enum"
 
 export type SheerIDOrganization = Readonly<{
@@ -319,4 +322,21 @@ export type SheerIDAddSchoolInfo = {
     schoolDomain: string,
     schoolCountry: string,
     trackingId?: string
+}
+
+export type SheerIDVerificationReportSchema = {
+    format: "CSV",
+    startDate: string,
+    endDate: string,
+    isPiiIncluded: boolean,
+    piiReason: string,
+    verificationModeInclusion: SheerIDVerificationModeInclusion,
+    programIds: Array<string>,
+    countryCodes: Array<string>,
+    rewardEligibilities: Array<SheerIDRewardEligibility>,
+    communities: Array<SheerIDCommunity>,
+    metadataRowFilters: object,
+    standardFields: Array<string>,
+    personFields: Array<string>,
+    metadataFields: Array<string>
 }

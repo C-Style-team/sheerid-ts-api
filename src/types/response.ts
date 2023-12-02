@@ -15,9 +15,9 @@ import {
     SheerIDVerificationStep,
     SheerIDOrganizationType,
     SheerIDOfferType,
+    SheerIDReportStatus,
     SheerIDRewardDisplay,
 } from "./enum";
-
 import {
     SheerIDAllPersonInfo,
     SheerIDOrganization
@@ -315,4 +315,13 @@ export type SheerIDSchoolSearchingResponse = Readonly<{
     eligible: Array<SheerIDOrganization>,
     ineligible: Array<SheerIDOrganization>,
     errorIds: Array<SheerIDErrorId>
+}>;
+
+export type SheerIDReportResponse = Readonly<{
+    id: string,
+    status: SheerIDReportStatus
+    stautsUrl: string,
+    retrievalUrl: string,
+    requester: string,
+    created: number
 }>;

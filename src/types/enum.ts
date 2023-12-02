@@ -306,3 +306,47 @@ export type SheerIDRewardDisplay =
     | "CODE_128"
     | "PDF417";
 
+export type SheerIDReportStatus =
+    | "PENDING"
+    | "COMPLETE"
+    | "ERROR"
+    | "DELETED";
+
+export type SheerIDVerificationModeInclusion =
+    | "ALL"
+    | "LIVE"
+    | "TEST";
+
+export type SheerIDRewardEligibility =
+    | "ELIGIBLE"
+    | "INELIGIBLE";
+
+export type SheerIDCommunity =
+    | "Military"
+    | "Education"
+    | "Student"
+    | "Teacher / Faculty"
+    | "Employment"
+    | "EMT"
+    | "Firefighter"
+    | "Police"
+    | "First Responder"
+    | "Member"
+    | "Business"
+    | "Non Profit"
+    | "Nurse"
+    | "Doctor"
+    | "Dentist"
+    | "Pharmacist"
+    | "Other Healthcare"
+    | "Medical"
+    | "Age"
+    | "Cosmetologist"
+    | "Real Estate Agent"
+    | "Identity"
+    | "Veterinarian"
+    | "Child Care Worker"
+    | "Recent Mover"
+    | "Low Income"
+    | "Other";
+
