@@ -1,17 +1,10 @@
-import { Result, Ok, Err } from "@sniptt/monads";
-
 import { SheerID } from "./base";
-
 import { SheerIDErrorResponse, SheerIDSuccessResponse, SheerIDVerificationStatusDetailsResponse } from "./types/response";
-
-import { SheerIDMilitaryStatus, SheerIDVerificationMethod } from "./types/enum";
-
+import { SheerIDMilitaryStatus } from "./types/enum";
 import { SheerIDRequest } from "./request";
-
 import {
     SheerIDActiveMilitaryInfo,
     SheerIDAgeInfo,
-    SheerIDAllPersonInfo,
     SheerIDDriverLicenseInfo,
     SheerIDEmployeeInfo,
     SheerIDFirstResponderInfo,
@@ -19,16 +12,13 @@ import {
     SheerIDInactiveMilitaryInfo,
     SheerIDLicensedProfessionalInfo,
     SheerIDLowIncomeInfo,
-    SheerIDMarketplaceSubject,
     SheerIDMedicalProfessionalInfo,
     SheerIDMemberInfo,
     SheerIDMoverInfo,
     SheerIDSeniorInfo,
     SheerIDStudentInfo,
     SheerIDTeacherInfo,
-    SheerIDVerificationToken
 } from "./types/info";
-
 import { SheerIDOrganizationDetails } from "./types/common";
 
 type Ids = {

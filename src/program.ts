@@ -2,7 +2,7 @@ import { SheerID } from "./base";
 import { SheerIDRequest } from "./request";
 import { SheerIDVerificationStep } from "./types/enum"
 import { SheerIDOrganization } from "./types/info";
-import { SheerIDErrorResponse, SheerIDProgramThemeResponse, SheerIDResponse } from "./types/response";
+import { SheerIDErrorResponse, SheerIDProgramThemeResponse } from "./types/response";
 
 export class SheerIDProgram extends SheerID {
     programId: string;
