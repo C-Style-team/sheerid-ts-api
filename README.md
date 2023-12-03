@@ -8,6 +8,7 @@ This library is SheerID REST API wrapper for JavaScript / TypeScript. This libra
 <summary>Info</summary>
 
 - [ ] Retrieve build information
+
 </details>
 
 <details>
@@ -47,7 +48,51 @@ This library is SheerID REST API wrapper for JavaScript / TypeScript. This libra
 - [ ] Initiate Marketplace verification
 - [ ] Submit marketplace verification data
 - [x] Get organization details
+
 </details>
+
+<details>
+<summary>Program</summary>
+
+- [x] Get program theme
+- [x] Get the verification steps the given program may encounter in the verification flow.
+- [x] Get organization
+- [x] Establish verification limit
+- [x] Delete verification limit
+- [x] Create verification webhook
+- [x] Delete verification webhook
+- [x] Sends a link to the program
+
+</details>
+
+<details>
+<summary>Report</summary>
+
+- [x] Generate a verification report
+- [x] Generate verification report for re-verification task
+- [ ] Retrieve report generation status
+- [ ] Download report
+- [ ] List reporting fields
+
+</details>
+
+<details>
+<summary>Conversion</summary>
+
+- [ ] Store conversion information
+- [ ] Store conversion information by Tracking ID
+
+</details>
+
+<details>
+<summary>Addschool</summary>
+
+- [x] Submit an add school request
+- [x] Search for eligible schools by domain name as part of the add school flow
+- [x] Search for eligible schools by name as part of the add school flow
+
+</details>
+
 
 ## LICENSE
 
