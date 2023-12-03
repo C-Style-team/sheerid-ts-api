@@ -325,3 +325,10 @@ export type SheerIDReportResponse = Readonly<{
     requester: string,
     created: number
 }>;
+
+export type SheerIDInfoResponse = Readonly<{
+    sheeridVersion: string,
+    sheeridGitCommit: string,
+    puppetGitCommit: string,
+    buildTimestamp: string
+}>;
