@@ -210,9 +210,11 @@ export class SheerIDVerification extends SheerID {
 
     // get verification metadata
     public getMetadata() {
-        return new SheerIDRequest<>()
+        return new SheerIDRequest<{ [key: string]: string }>()
             .endpoint(`/verification/${this.verificationId}/metadata`)
             .method("GET")
+            .set("headers", { "Authorization": `Bearer ${this.apiToken}` })
+            .send();
     }
 
     // Submit student data
