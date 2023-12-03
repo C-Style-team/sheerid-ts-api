@@ -79,8 +79,8 @@ This library is SheerID REST API wrapper for JavaScript / TypeScript. This libra
 <details>
 <summary>Conversion</summary>
 
-- [ ] Store conversion information
-- [ ] Store conversion information by Tracking ID
+- [x] Store conversion information
+- [x] Store conversion information by Tracking ID
 
 </details>
 
