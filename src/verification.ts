@@ -21,18 +21,17 @@ import {
 } from "./types/info";
 import { SheerIDOrganizationDetails } from "./types/common";
 
-type Ids = {
-    verificationId: string | undefined,
-    programId: string | undefined,
-    trackingId: string | undefined
-};
-
 export class SheerIDVerification extends SheerID {
     verificationId: string | undefined;
     programId: string | undefined;
     trackingId: string | undefined;
 
-    constructor(apiToken: string, { verificationId, programId, trackingId }: Ids) {
+    constructor(
+        apiToken: string,
+        verificationId: string | undefined,
+        programId: string | undefined,
+        trackingId: string | undefined
+    ) {
         super(apiToken);
         this.verificationId = verificationId;
         this.programId = programId;
@@ -210,7 +209,7 @@ export class SheerIDVerification extends SheerID {
 
     // Get verification metadata
     public getMetadata() {
-        return new SheerIDRequest<{ [key: string]: string }>()
+        return new SheerIDRequest<{ [key: string]: string } | SheerIDErrorResponse>()
             .endpoint(`/verification/${this.verificationId}/metadata`)
             .method("GET")
             .set("headers", { "Authorization": `Bearer ${this.apiToken}` })
@@ -219,7 +218,7 @@ export class SheerIDVerification extends SheerID {
 
     // Replace verification metadata
     public replaceMetadata(schema: { [key: string]: string }) {
-        return new SheerIDRequest<{ [key: string]: string }>()
+        return new SheerIDRequest<{ [key: string]: string } | SheerIDErrorResponse>()
             .endpoint(`/verification/${this.verificationId}/metadata`)
             .method("PUT")
             .set("headers", { "Authorization": `Bearer ${this.apiToken}` })
@@ -227,11 +226,66 @@ export class SheerIDVerification extends SheerID {
             .send();
     }
 
+    // Refire the most recent webhook notifications for the verification request
     public refireWebhooks() {
         return new SheerIDRequest<{ [key: string]: string }>()
             .endpoint(`/verification/${this.verificationId}/refireWebhooks`)
             .method("PUT")
             .set("headers", { "Authorization": `Bearer ${this.apiToken}` })
+            .send();
+    }
+
+    // Add a label to a verification request.
+    public addLabelToRequest(label: "suspectedFraud" | "confirmedFraud", comment: string) {
+        return new SheerIDRequest<{} | SheerIDErrorResponse>()
+            .endpoint(`/verification/${this.verificationId}/label/${label}`)
+            .method("POST")
+            .set("body", { "comment": comment })
+            .send();
+    }
+
+    public getBarcodeImage(rewardKey: string, symbology: string) {
+        return new SheerIDRequest<string /*binary image*/ | SheerIDErrorResponse>()
+            .endpoint(`/verification/${this.verificationId}/barcode`)
+            .method("GET")
+            .set("body", {
+                rewardKey: rewardKey,
+                symbology: symbology
+            })
+            .send();
+    }
+
+    public purgePersonData() {
+        return new SheerIDRequest<{} | SheerIDErrorResponse>()
+            .endpoint(`/verification/${this.verificationId}/purgePersonData`)
+            .method("POST")
+            .send();
+    }
+
+    public resetLimits() {
+        return new SheerIDRequest<{} | SheerIDErrorResponse>()
+            .endpoint(`/verification/${this.verificationId}/resetVerificationLimits`)
+            .method("POST")
+            .send();
+    }
+
+    public start(installPageUrl: string | undefined, metadata: { [key: string]: string } | undefined) {
+        return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
+            .endpoint(`/verification`)
+            .method("POST")
+            .set("body", {
+                programId: this.programId,
+                trackingId: this.trackingId,
+                installPageUrl: installPageUrl,
+                metadata: metadata
+            })
+            .send();
+    }
+
+    public expire() {
+        return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
+            .endpoint(`/verification/${this.verificationId}/expire`)
+            .method("POST")
             .send();
     }
 
@@ -268,6 +322,23 @@ export class SheerIDVerification extends SheerID {
             .endpoint(`/verification/${this.verificationId}/step/collectInactiveMilitaryPersonalInfo`)
             .method("POST")
             .set("body", info)
+            .send();
+    }
+
+    public submitSocialSecurityNumber(socialSecurityNumber: string) {
+        return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
+            .endpoint(`/verification/${this.verificationId}/step/collectSocialSecurityNumber`)
+            .method("POST")
+            .set("body", {
+                socialSecurityNumber: socialSecurityNumber
+            })
+            .send();
+    }
+
+    public skipSubmissionSocialSecurityNumber() {
+        return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
+            .endpoint(`/verification/${this.verificationId}/step/collectSocialSecurityNumber`)
+            .method("DELETE")
             .send();
     }
 
