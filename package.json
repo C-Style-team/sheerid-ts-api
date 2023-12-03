@@ -1,21 +1,21 @@
 {
-  "name": "sheerid-unofficial",
+  "name": "sheerid-ts-api",
   "version": "1.0.0",
-  "description": "SheerID API wrapper for JavaScript (Unofficial)",
+  "description": "SheerID API wrapper for JavaScript / TypeScript (Unofficial)",
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kyure-A/sheerid.js.git"
+    "url": "git+https://github.com/Kyure-A/sheerid-ts-api.git"
   },
   "author": "Kyure_A",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Kyure-A/sheerid.js/issues"
+    "url": "https://github.com/Kyure-A/sheerid-ts-api/issues"
   },
-  "homepage": "https://github.com/Kyure-A/sheerid.js#readme",
+  "homepage": "https://github.com/Kyure-A/sheerid-ts-api#readme",
   "devDependencies": {
     "@sniptt/monads": "^0.5.10",
     "@types/node": "^20.9.2",
