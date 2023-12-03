@@ -19,9 +19,9 @@ This library is SheerID REST API wrapper for JavaScript / TypeScript. This libra
 - [x] Get verification status by Tracking ID
 - [x] Get the 10 most recent verification statuses by Tracking ID
 - [x] Get verification details
-- [ ] Get verification metadata
-- [ ] Replace verification metadata
-- [ ] Refire verification webhook
+- [x] Get verification metadata
+- [x] Replace verification metadata
+- [x] Refire verification webhook
 - [ ] Label a verification request
 - [ ] Retrieves a barcode image for a given reward code
 - [ ] Purge personal data (PII) from a verification

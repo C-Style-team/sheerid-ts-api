@@ -208,11 +208,29 @@ export class SheerIDVerification extends SheerID {
             .send();
     }
 
-    // get verification metadata
+    // Get verification metadata
     public getMetadata() {
         return new SheerIDRequest<{ [key: string]: string }>()
             .endpoint(`/verification/${this.verificationId}/metadata`)
             .method("GET")
+            .set("headers", { "Authorization": `Bearer ${this.apiToken}` })
+            .send();
+    }
+
+    // Replace verification metadata
+    public replaceMetadata(schema: { [key: string]: string }) {
+        return new SheerIDRequest<{ [key: string]: string }>()
+            .endpoint(`/verification/${this.verificationId}/metadata`)
+            .method("PUT")
+            .set("headers", { "Authorization": `Bearer ${this.apiToken}` })
+            .set("body", schema)
+            .send();
+    }
+
+    public refireWebhooks() {
+        return new SheerIDRequest<{ [key: string]: string }>()
+            .endpoint(`/verification/${this.verificationId}/refireWebhooks`)
+            .method("PUT")
             .set("headers", { "Authorization": `Bearer ${this.apiToken}` })
             .send();
     }
