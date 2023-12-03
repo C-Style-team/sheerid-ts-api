@@ -15,14 +15,14 @@ export class SheerIDProgram extends SheerID {
     public getProgramTheme() {
         return new SheerIDRequest<SheerIDProgramThemeResponse | SheerIDErrorResponse>()
             .endpoint(`/program/${this.programId}/theme`)
-            .set("method", "GET")
+            .method("GET")
             .send();
     }
 
     public getProgramPossibleSteps() {
         return new SheerIDRequest<SheerIDVerificationStep | SheerIDErrorResponse>()
             .endpoint(`/program/${this.programId}/possibleSteps`)
-            .set("method", "GET")
+            .method("GET")
             .send();
     }
 
@@ -32,7 +32,7 @@ export class SheerIDProgram extends SheerID {
     public getOrganizaion(name: string, country?: string) {
         return new SheerIDRequest<SheerIDOrganization | SheerIDErrorResponse>()
             .endpoint(`/program/${this.programId}/organization`)
-            .set("method", "GET")
+            .method("GET")
             .set("body", { name, country })
             .send();
     }
@@ -40,7 +40,7 @@ export class SheerIDProgram extends SheerID {
     public establishVerificationLimit(quantity: number, days: number) {
         return new SheerIDRequest<{} | SheerIDErrorResponse>()
             .endpoint(`/program/${this.programId}/verificationLimit`)
-            .set("method", "POST")
+            .method("POST")
             .set("body", { quantity, days })
             .send();
     }
@@ -48,14 +48,14 @@ export class SheerIDProgram extends SheerID {
     public deleteVefificationLimit() {
         return new SheerIDRequest<{} | SheerIDErrorResponse>()
             .endpoint(`/program/${this.programId}/verificationLimit`)
-            .set("method", "DELETE")
+            .method("DELETE")
             .send();
     }
 
     public createVerificationWebhook(callbackUri: string) {
         return new SheerIDRequest<{} | SheerIDErrorResponse>()
             .endpoint(`/program/${this.programId}/webhook`)
-            .set("method", "POST")
+            .method("POST")
             .set("body", { callbackUri })
             .send();
     }
@@ -63,14 +63,14 @@ export class SheerIDProgram extends SheerID {
     public deleteVerificationWebhook() {
         return new SheerIDRequest<{} | SheerIDErrorResponse>()
             .endpoint(`/program/${this.programId}/webhook`)
-            .set("method", "DELETE")
+            .method("DELETE")
             .send();
     }
 
     public sendLink(phoneNumber: string, externalUserId?: string) {
         return new SheerIDRequest<{} | SheerIDErrorResponse>()
             .endpoint(`/program/${this.programId}/sendLink`)
-            .set("method", "POST")
+            .method("POST")
             .set("body", { phoneNumber, externalUserId })
             .send();
     }

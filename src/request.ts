@@ -23,6 +23,11 @@ export class SheerIDRequest<T> {
         return this;
     }
 
+    public method(method: "GET" | "POST" | "PUT" | "DELETE") {
+        this.set("method", method);
+        return this;
+    }
+
     public endpoint(endpoint: `/${string}`): this {
         this.m_endpoint = endpoint;
         return this;

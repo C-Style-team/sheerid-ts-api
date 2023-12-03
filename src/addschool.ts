@@ -15,7 +15,7 @@ export class SheerIDSchool extends SheerID {
     public add(info: SheerIDAddSchoolInfo) {
         return new SheerIDRequest<{} | SheerIDErrorResponse>()
             .endpoint("/organization/addSchool")
-            .set("method", "POST")
+            .method("POST")
             .set("body", info)
             .send();
     }
@@ -23,7 +23,7 @@ export class SheerIDSchool extends SheerID {
     public searchByDomain(schoolCountry: string, schoolDomain: string) {
         return new SheerIDRequest<SheerIDSchoolSearchingResponse | SheerIDErrorResponse>()
             .endpoint("/organization/addSchool/search/domain")
-            .set("method", "POST")
+            .method("POST")
             .set("body", { "programId": this.programId, schoolCountry, schoolDomain })
             .send();
     }
@@ -31,7 +31,7 @@ export class SheerIDSchool extends SheerID {
     public searchByName(schoolCountry: string, schoolName: string) {
         return new SheerIDRequest<SheerIDSchoolSearchingResponse | SheerIDErrorResponse>()
             .endpoint("/organization/addSchool/search/name")
-            .set("method", "POST")
+            .method("POST")
             .set("body", { "programId": this.programId, schoolCountry, schoolName })
             .send();
     }

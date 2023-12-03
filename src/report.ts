@@ -11,7 +11,7 @@ export class SheerIDReport extends SheerID {
     public getVerificationReport(schema: SheerIDVerificationReportSchema) {
         return new SheerIDRequest<SheerIDReportResponse>()
             .endpoint("/report/verification")
-            .set("Method", "POST")
+            .method("POST")
             .set("body", schema)
             .send();
     }
@@ -19,7 +19,7 @@ export class SheerIDReport extends SheerID {
     public getReverificationReport(batchId: string) {
         return new SheerIDRequest<SheerIDReportResponse>()
             .endpoint(`/report/reverify/${batchId}`)
-            .set("Method", "POST")
+            .method("POST")
             .send();
     }
 }
