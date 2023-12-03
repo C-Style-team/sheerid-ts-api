@@ -22,14 +22,14 @@ This library is SheerID REST API wrapper for JavaScript / TypeScript. This libra
 - [x] Get verification metadata
 - [x] Replace verification metadata
 - [x] Refire verification webhook
-- [ ] Label a verification request
-- [ ] Retrieves a barcode image for a given reward code
-- [ ] Purge personal data (PII) from a verification
-- [ ] Reset the limits for the provided verification
-- [ ] Begin verification flow
-- [ ] Expire the provided verification
+- [x] Label a verification request
+- [x] Retrieves a barcode image for a given reward code
+- [x] Purge personal data (PII) from a verification
+- [x] Reset the limits for the provided verification
+- [x] Begin verification flow
+- [x] Expire the provided verification
 - [ ] Submit * data
-- [ ] Skip submission of Social Security Number
+- [x] Skip submission of Social Security Number
 - [ ] Start SSO process
 - [ ] Cancel SSO verification
 - [ ] Submit email loop response
