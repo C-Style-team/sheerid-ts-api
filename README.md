@@ -7,7 +7,7 @@ This library is SheerID REST API wrapper for JavaScript / TypeScript. This libra
 <details>
 <summary>Info</summary>
 
-- [ ] Retrieve build information
+- [x] Retrieve build information
 
 </details>
 
