@@ -340,3 +340,9 @@ export type SheerIDVerificationReportSchema = {
     personFields: Array<string>,
     metadataFields: Array<string>
 }
+
+export type SheerIDConversionInfo = {
+    amount: number // amount >= 0
+    currency: string // The ISO-4217 3-letter Alphabetic Currency Code
+    tags: Array<string>
+}

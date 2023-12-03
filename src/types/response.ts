@@ -332,3 +332,7 @@ export type SheerIDInfoResponse = Readonly<{
     puppetGitCommit: string,
     buildTimestamp: string
 }>;
+
+export type SheerIDConversionResponse = {
+    id: string,
+}
