@@ -1,24 +1,27 @@
 {
-  "name": "sheerid-ts-api",
-  "version": "1.0.0",
-  "description": "SheerID API wrapper for JavaScript / TypeScript (Unofficial)",
-  "main": "index.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Kyure-A/sheerid-ts-api.git"
-  },
-  "author": "Kyure_A",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Kyure-A/sheerid-ts-api/issues"
-  },
-  "homepage": "https://github.com/Kyure-A/sheerid-ts-api#readme",
-  "devDependencies": {
-    "@sniptt/monads": "^0.5.10",
-    "@types/node": "^20.9.2",
-    "typescript": "^5.2.2"
-  }
+    "name": "sheerid-ts-api",
+    "version": "1.0.0",
+    "description": "SheerID API wrapper for JavaScript / TypeScript (Unofficial)",
+    "main": "index.ts",
+    "scripts": {
+        "test": "tsc src/test/index.ts && node src/test/index.js",
+        "preinstall": "npx only-allow pnpm",
+	"format": "prettier --write src"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Kyure-A/sheerid-ts-api.git"
+    },
+    "author": "Kyure_A",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Kyure-A/sheerid-ts-api/issues"
+    },
+    "homepage": "https://github.com/Kyure-A/sheerid-ts-api#readme",
+    "devDependencies": {
+        "@sniptt/monads": "^0.5.10",
+        "@types/node": "^20.9.2",
+        "prettier": "^3.1.0",
+        "typescript": "^5.2.2"
+    }
 }
