@@ -396,7 +396,7 @@ export class SheerIDVerification extends SheerID {
       .set("body", info)
       .send();
   }
-  
+
   // Submit Social Security Number
   public submitSocialSecurityNumber(socialSecurityNumber: string) {
     return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
@@ -464,9 +464,7 @@ export class SheerIDVerification extends SheerID {
   }
 
   // Submit licensed professional data
-  public submitLicensedProfessionalData(
-    info: SheerIDLicensedProfessionalInfo,
-  ) {
+  public submitLicensedProfessionalData(info: SheerIDLicensedProfessionalInfo) {
     return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
       .endpoint(
         `/verification/${this.verificationId}/step/collectLicensedProfessionalPersonalInfo`,
@@ -488,9 +486,7 @@ export class SheerIDVerification extends SheerID {
   }
 
   // Submit medical professional data
-  public submitMedicalProfessionalData(
-    info: SheerIDMedicalProfessionalInfo,
-  ) {
+  public submitMedicalProfessionalData(info: SheerIDMedicalProfessionalInfo) {
     return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
       .endpoint(
         `/verification/${this.verificationId}/step/collectMedicalProfessionalPersonalInfo`,
@@ -512,9 +508,7 @@ export class SheerIDVerification extends SheerID {
   }
 
   // Submit general identity data
-  public submitGeneralIdentityData(
-    info: SheerIDGeneralIdentityInfo,
-  ) {
+  public submitGeneralIdentityData(info: SheerIDGeneralIdentityInfo) {
     return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
       .endpoint(
         `/verification/${this.verificationId}/step/collectGeneralIdentityPersonalInfo`,
