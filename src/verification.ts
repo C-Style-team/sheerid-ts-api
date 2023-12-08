@@ -396,7 +396,8 @@ export class SheerIDVerification extends SheerID {
       .set("body", info)
       .send();
   }
-
+  
+  // Submit Social Security Number
   public submitSocialSecurityNumber(socialSecurityNumber: string) {
     return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
       .endpoint(
@@ -415,6 +416,144 @@ export class SheerIDVerification extends SheerID {
         `/verification/${this.verificationId}/step/collectSocialSecurityNumber`,
       )
       .method("DELETE")
+      .send();
+  }
+
+  // Submit teacher data
+  public submitTeacherData(info: SheerIDTeacherInfo) {
+    return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
+      .endpoint(
+        `/verification/{this.verificationId}/step/collectTeacherPersonalInfo`,
+      )
+      .method("POST")
+      .set("body", info)
+      .send();
+  }
+
+  // Submit senior data
+  public submitSeniorData(info: SheerIDSeniorInfo) {
+    return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
+      .endpoint(
+        `/verification/${this.verificationId}/step/collectSeniorPersonalInfo`,
+      )
+      .method("POST")
+      .set("body", info)
+      .send();
+  }
+
+  // Submit age data
+  public submitAgeData(info: SheerIDAgeInfo) {
+    return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
+      .endpoint(
+        `/verification/${this.verificationId}/step/collectAgePersonalInfo`,
+      )
+      .method("POST")
+      .set("body", info)
+      .send();
+  }
+
+  // Submit first responder data
+  public submitFirstResponderData(info: SheerIDFirstResponderInfo) {
+    return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
+      .endpoint(
+        `/verification/${this.verificationId}/step/collectFirstResponderPersonalInfo`,
+      )
+      .method("POST")
+      .set("body", info)
+      .send();
+  }
+
+  // Submit licensed professional data
+  public submitLicensedProfessionalData(
+    info: SheerIDLicensedProfessionalInfo,
+  ) {
+    return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
+      .endpoint(
+        `/verification/${this.verificationId}/step/collectLicensedProfessionalPersonalInfo`,
+      )
+      .method("POST")
+      .set("body", info)
+      .send();
+  }
+
+  // Submit mover data
+  public submitMoverData(info: SheerIDMoverInfo) {
+    return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
+      .endpoint(
+        `/verification/${this.verificationId}/step/collectMoverPersonalInfo`,
+      )
+      .method("POST")
+      .set("body", info)
+      .send();
+  }
+
+  // Submit medical professional data
+  public submitMedicalProfessionalData(
+    info: SheerIDMedicalProfessionalInfo,
+  ) {
+    return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
+      .endpoint(
+        `/verification/${this.verificationId}/step/collectMedicalProfessionalPersonalInfo`,
+      )
+      .method("POST")
+      .set("body", info)
+      .send();
+  }
+
+  // Submit driver license data
+  public submitDriverLicenseData(info: SheerIDDriverLicenseInfo) {
+    return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
+      .endpoint(
+        `/verification/${this.verificationId}/step/collectDriverLicensePersonalInfo`,
+      )
+      .method("POST")
+      .set("body", info)
+      .send();
+  }
+
+  // Submit general identity data
+  public submitGeneralIdentityData(
+    info: SheerIDGeneralIdentityInfo,
+  ) {
+    return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
+      .endpoint(
+        `/verification/${this.verificationId}/step/collectGeneralIdentityPersonalInfo`,
+      )
+      .method("POST")
+      .set("body", info)
+      .send();
+  }
+
+  // Submit employee data
+  public submitEmployeeData(info: SheerIDEmployeeInfo) {
+    return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
+      .endpoint(
+        `/verification/${this.verificationId}/step/collectEmployeePersonalInfo`,
+      )
+      .method("POST")
+      .set("body", info)
+      .send();
+  }
+
+  // Submit member data
+  public submitMemberData(info: SheerIDMemberInfo) {
+    return new SheerIDRequest<SheerIDSuccessResponse>()
+      .endpoint(
+        `/verification/${this.verificationId}/step/collectMemberPersonalInfo`,
+      )
+      .method("POST")
+      .set("body", info)
+      .send();
+  }
+
+  // Submit low income personal data
+  public submitLowIncomeData(info: SheerIDLowIncomeInfo) {
+    return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
+      .endpoint(
+        `/verification/${this.verificationId}/step/collectLowIncomePersonalInfo`,
+      )
+      .method("POST")
+      .set("body", info)
       .send();
   }
 
