@@ -28,7 +28,7 @@ This library is SheerID REST API wrapper for JavaScript / TypeScript. This libra
 - [x] Reset the limits for the provided verification
 - [x] Begin verification flow
 - [x] Expire the provided verification
-- [ ] Submit * data
+- [x] Submit * data
 - [x] Skip submission of Social Security Number
 - [ ] Start SSO process
 - [ ] Cancel SSO verification
@@ -70,8 +70,8 @@ This library is SheerID REST API wrapper for JavaScript / TypeScript. This libra
 
 - [x] Generate a verification report
 - [x] Generate verification report for re-verification task
-- [ ] Retrieve report generation status
-- [ ] Download report
+- [x] Retrieve report generation status
+- [x] Download report
 - [ ] List reporting fields
 
 </details>
