@@ -30,12 +30,12 @@ This library is SheerID REST API wrapper for JavaScript / TypeScript. This libra
 - [x] Expire the provided verification
 - [x] Submit * data
 - [x] Skip submission of Social Security Number
-- [ ] Start SSO process
-- [ ] Cancel SSO verification
-- [ ] Submit email loop response
-- [ ] Cancel email loop verification
-- [ ] Retry email loop
-- [ ] Retrieve email loop token
+- [x] Start SSO process
+- [x] Cancel SSO verification
+- [x] Submit email loop response
+- [x] Cancel email loop verification
+- [x] Retry email loop
+- [x] Retrieve email loop token
 - [ ] Resume email loop
 - [ ] Allow user to submit an alternate email address
 - [ ] Submit SMS code
