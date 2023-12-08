@@ -288,7 +288,7 @@ export class SheerIDVerification extends SheerID {
   public refireWebhooks() {
     return new SheerIDRequest<{ [key: string]: string }>()
       .endpoint(`/verification/${this.verificationId}/refireWebhooks`)
-      .method("PUT")
+      .method("POST")
       .set("headers", { Authorization: `Bearer ${this.apiToken}` })
       .send();
   }
@@ -548,6 +548,63 @@ export class SheerIDVerification extends SheerID {
       )
       .method("POST")
       .set("body", info)
+      .send();
+  }
+
+  // Start SSO process
+  public startSSOProcess() {
+    return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
+      .endpoint(`/verification/${this.verificationId}/step/sso`)
+      .method("GET")
+      .send();
+  }
+
+  // Cancel SSO process
+  public cancelSSOProcess() {
+    return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
+      .endpoint(`/verification/${this.verificationId}/step/sso`)
+      .method("DELETE")
+      .send();
+  }
+
+  // Submit email loop response
+  public submitEmailLoop(emailToken?: string, deviceFingerprintHash?: string) {
+    return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
+      .endpoint(`/verification/${this.verificationId}/step/emailLoop`)
+      .method("POST")
+      .set("body", {
+        emailToken: emailToken,
+        deviceFingerprintHash: deviceFingerprintHash,
+      })
+      .send();
+  }
+
+  // Cancel email loop verification
+  public cancelEmailLoop() {
+    return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
+      .endpoint(`/verification/${this.verificationId}/step/emailLoop`)
+      .method("DELETE")
+      .send();
+  }
+
+  // Cancel email loop verification
+  public retryEmailLoop() {
+    return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
+      .endpoint(`/verification/${this.verificationId}/step/emailLoop/retry`)
+      .method("GET")
+      .send();
+  }
+
+  // Retrieve email loop token
+  public getEmailLoopToken(refreshToken?: boolean) {
+    return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
+      .endpoint(
+        `/verification/${this.verificationId}/step/emailLoop/retrieveToken`,
+      )
+      .method("POST")
+      .set("body", {
+        refreshToken: refreshToken,
+      })
       .send();
   }
 
