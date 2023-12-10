@@ -1,6 +1,16 @@
+[![npm version](https://badge.fury.io/js/sheerid-ts-api.svg)](https://badge.fury.io/js/sheerid-ts-api)
+
 # SheerID REST API v2 Client
 
 This library is SheerID REST API wrapper for JavaScript / TypeScript. This library based on [SheerID REST API Reference (2.0.0)](https://developer.sheerid.com/rest-api)
+
+This library is still under development. We cannot be held responsible for any disadvantages caused by using it.
+
+## Install
+
+```shell
+npm install sheerid-ts-api
+```
 
 ## List of endpoints
 
