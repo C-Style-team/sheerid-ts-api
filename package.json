@@ -1,7 +1,7 @@
 {
     "name": "sheerid-ts-api",
-    "version": "0.2.0",
-    "description": "SheerID API wrapper for JavaScript / TypeScript (Unofficial)",
+    "version": "0.2.1",
+    "description": "Simple and minimal SheerID API wrapper for JavaScript / TypeScript (Unofficial)",
     "main": "index.ts",
     "scripts": {
         "test": "tsc src/test/index.ts && node src/test/index.js",
