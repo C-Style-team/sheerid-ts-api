@@ -2,9 +2,9 @@
 
 # SheerID REST API v2 Client
 
-This library is SheerID REST API wrapper for JavaScript / TypeScript. This library based on [SheerID REST API Reference (2.0.0)](https://developer.sheerid.com/rest-api)
+This library is SheerID REST API wrapper for JavaScript / TypeScript, based on [SheerID REST API Reference (2.0.0)](https://developer.sheerid.com/rest-api)
 
-This library is still under development. We cannot be held responsible for any disadvantages caused by using it.
+This is still under development. We cannot be held responsible for any disadvantages caused by using this.
 
 ## Install
 
