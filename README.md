@@ -36,17 +36,17 @@ This library is SheerID REST API wrapper for JavaScript / TypeScript. This libra
 - [x] Cancel email loop verification
 - [x] Retry email loop
 - [x] Retrieve email loop token
-- [ ] Resume email loop
-- [ ] Allow user to submit an alternate email address
-- [ ] Submit SMS code
-- [ ] Retry SMS code
-- [ ] Upload documents
-- [ ] Cancel documents upload
-- [ ] Upload documents (deprecated)
-- [ ] Mark uploading documents as completed
-- [ ] Modify the result of a verification via overriding
-- [ ] Initiate Marketplace verification
-- [ ] Submit marketplace verification data
+- [x] Resume email loop
+- [x] Allow user to submit an alternate email address
+- [x] Submit SMS code
+- [x] Retry SMS code
+- [x] Upload documents
+- [x] Cancel documents upload
+- [x] Upload documents (deprecated)
+- [x] Mark uploading documents as completed
+- [x] Modify the result of a verification via overriding
+- [x] Initiate Marketplace verification
+- [x] Submit marketplace verification data
 - [x] Get organization details
 
 </details>
