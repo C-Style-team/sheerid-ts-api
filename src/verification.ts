@@ -1,10 +1,16 @@
 import { SheerID } from "./base";
 import {
   SheerIDErrorResponse,
+  SheerIDOverrideEmailLoopResponse,
   SheerIDSuccessResponse,
   SheerIDVerificationStatusDetailsResponse,
 } from "./types/response";
-import { SheerIDMilitaryStatus } from "./types/enum";
+import {
+  SheerIDErrorId,
+  SheerIDMilitaryStatus,
+  SheerIDSegment,
+  SheerIDVerificationStep,
+} from "./types/enum";
 import { SheerIDRequest } from "./request";
 import {
   SheerIDActiveMilitaryInfo,
@@ -16,6 +22,7 @@ import {
   SheerIDInactiveMilitaryInfo,
   SheerIDLicensedProfessionalInfo,
   SheerIDLowIncomeInfo,
+  SheerIDMarketplaceSubject,
   SheerIDMedicalProfessionalInfo,
   SheerIDMemberInfo,
   SheerIDMoverInfo,
@@ -301,6 +308,7 @@ export class SheerIDVerification extends SheerID {
     return new SheerIDRequest<{} | SheerIDErrorResponse>()
       .endpoint(`/verification/${this.verificationId}/label/${label}`)
       .method("POST")
+      .set("headers", { Authorization: `Bearer ${this.apiToken}` })
       .set("body", { comment: comment })
       .send();
   }
@@ -320,6 +328,7 @@ export class SheerIDVerification extends SheerID {
     return new SheerIDRequest<{} | SheerIDErrorResponse>()
       .endpoint(`/verification/${this.verificationId}/purgePersonData`)
       .method("POST")
+      .set("headers", { Authorization: `Bearer ${this.apiToken}` })
       .send();
   }
 
@@ -327,6 +336,7 @@ export class SheerIDVerification extends SheerID {
     return new SheerIDRequest<{} | SheerIDErrorResponse>()
       .endpoint(`/verification/${this.verificationId}/resetVerificationLimits`)
       .method("POST")
+      .set("headers", { Authorization: `Bearer ${this.apiToken}` })
       .send();
   }
 
@@ -602,8 +612,125 @@ export class SheerIDVerification extends SheerID {
         `/verification/${this.verificationId}/step/emailLoop/retrieveToken`,
       )
       .method("POST")
+      .set("headers", { Authorization: `Bearer ${this.apiToken}` })
       .set("body", {
         refreshToken: refreshToken,
+      })
+      .send();
+  }
+
+  // Resume email loop
+  public resumeEmailLoop(emailAddress?: string) {
+    return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
+      .endpoint(`/verification/${this.verificationId}/step/emailLoop/resume`)
+      .method("POST")
+      .set("headers", { Authorization: `Bearer ${this.apiToken}` })
+      .set("body", {
+        emailAddress: emailAddress,
+      })
+      .send();
+  }
+
+  // Allow user to submit an alternate email address
+  public overrideEmailLoopAddress(emailAddress?: string) {
+    return new SheerIDRequest<
+      SheerIDOverrideEmailLoopResponse | SheerIDErrorResponse
+    >()
+      .endpoint(
+        `/verification/${this.verificationId}/step/emailLoop/emailAddressOverride`,
+      )
+      .method("POST")
+      .set("body", {
+        emailAddress: emailAddress,
+      })
+      .send();
+  }
+
+  // Submit SMS Code
+  public submitSMSCode(smsCode: string, deviceFingerprintHash?: string) {
+    return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
+      .endpoint(`/verification/${this.verificationId}/step/smsLoop`)
+      .method("POST")
+      .set("body", {
+        smsCode: smsCode,
+        deviceFingerprintHash: deviceFingerprintHash,
+      })
+      .send();
+  }
+
+  // Retry SMS Code
+  public retrySMSCode() {
+    return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
+      .endpoint(`/verification/${this.verificationId}/step/smsLoop/retry`)
+      .method("GET")
+      .send();
+  }
+
+  // Upload documents
+  public uploadDocuments(file: string) {
+    const formData = new FormData();
+    formData.append("file", file);
+
+    return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
+      .endpoint(`/verification/${this.verificationId}/step/docUpload`)
+      .method("POST")
+      .set("body", formData)
+      .send();
+  }
+
+  // Cancel document upload
+  public cancelDocumentUpload() {
+    return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
+      .endpoint(`/verification/${this.verificationId}/step/docUpload`)
+      .method("DELETE")
+      .send();
+  }
+
+  // Mark uploading documents as completed
+  public markCompleteDocumentUpload() {
+    return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
+      .endpoint(`/verification/${this.verificationId}/step/completeDocUpload`)
+      .method("POST")
+      .send();
+  }
+
+  // Modify the result of a verification via overriding
+  public overrideResult(overrideCode: string) {
+    return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
+      .endpoint(`/verification/${this.verificationId}/step/resultOverride`)
+      .method("POST")
+      .set("body", {
+        overrideCode: overrideCode,
+      })
+      .send();
+  }
+
+  // Initiate Marketplace verification
+  public initiateMarketplace(
+    programId: string,
+    trackingId: string,
+    subject: SheerIDMarketplaceSubject,
+  ) {
+    return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
+      .endpoint(`/verification/marketplace`)
+      .method("POST")
+      .set("body", {
+        programId: programId,
+        trackingId: trackingId,
+        subject: subject,
+      })
+      .send();
+  }
+
+  // Submit marketplace verification data
+  public submitMarketplaceData(verificationToken: string) {
+    return new SheerIDRequest<SheerIDSuccessResponse | SheerIDErrorResponse>()
+      .endpoint(
+        `/verification/${this.verificationId}/step/collectMarketplaceToken`,
+      )
+      .method("POST")
+      .set("body", {
+        verificationToken: verificationToken,
       })
       .send();
   }
@@ -617,6 +744,7 @@ export class SheerIDVerification extends SheerID {
     >()
       .endpoint(`/organization/${this.verificationId}`)
       .method("GET")
+      .set("headers", { Authorization: `Bearer ${this.apiToken}` })
       .send();
   }
 }

@@ -387,3 +387,15 @@ export type SheerIDInfoResponse = Readonly<{
 export type SheerIDConversionResponse = {
   id: string;
 };
+
+export type SheerIDOverrideEmailLoopResponse = {
+  verificationId: string;
+  currentStep: SheerIDVerificationStep;
+  submissionUrl: string;
+  errorIds?: Array<SheerIDErrorId>;
+  segment?: SheerIDSegment;
+  locale?: string;
+  country: string;
+  cancelUrl?: string;
+  canResendEmailLoop?: boolean;
+};

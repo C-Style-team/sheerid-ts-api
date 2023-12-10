@@ -37,7 +37,7 @@ export class SheerIDReport extends SheerID {
       .send();
   }
 
-  public getList(programIds: Array<string>) {
+  public getList(programIds?: Array<string>) {
     return new SheerIDRequest<SheerIDErrorResponse>()
       .endpoint(`/report/fields`)
       .method("GET")
