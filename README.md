@@ -108,7 +108,7 @@ npm install sheerid-ts-api
 <details>
 <summary>Info</summary>
 
-- [ ] Retrieve build information
+- [x] Retrieve build information
 
 </details>
 
@@ -120,7 +120,7 @@ npm install sheerid-ts-api
 - [ ] Get verification status by Tracking ID
 - [ ] Get the 10 most recent verification statuses by Tracking ID
 - [x] Get verification details
-- [ ] Get verification metadata
+- [x] Get verification metadata
 - [ ] Replace verification metadata
 - [ ] Refire verification webhook
 - [ ] Label a verification request
