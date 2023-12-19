@@ -228,11 +228,12 @@ export type SheerIDProgramThemeResponse = Readonly<{
     // Internationalization
     locale: string;
     messages: {
-      companyName: string;
-      lowRewardPool: string;
+      companyName: string | null;
+      lowRewardPool: string | null;
       optIn:
         | "The message shown when the marketing opt-in checkbox is presented"
-        | string;
+        | string
+        | null;
       step: {
         // StepMessages
         personalInfo: {
@@ -399,3 +400,7 @@ export type SheerIDOverrideEmailLoopResponse = {
   cancelUrl?: string;
   canResendEmailLoop?: boolean;
 };
+
+export type SheerIDPossibleStepsResponse = Readonly<{
+  steps: Array<SheerIDVerificationStep>
+}>;

@@ -4,6 +4,7 @@ import { SheerIDVerificationStep } from "./types/enum";
 import { SheerIDOrganization } from "./types/info";
 import {
   SheerIDErrorResponse,
+  SheerIDPossibleStepsResponse,
   SheerIDProgramThemeResponse,
 } from "./types/response";
 
@@ -25,7 +26,7 @@ export class SheerIDProgram extends SheerID {
   }
 
   public getProgramPossibleSteps() {
-    return new SheerIDRequest<SheerIDVerificationStep | SheerIDErrorResponse>()
+    return new SheerIDRequest<SheerIDPossibleStepsResponse | SheerIDErrorResponse>()
       .endpoint(`/program/${this.programId}/possibleSteps`)
       .method("GET")
       .send();
@@ -38,7 +39,7 @@ export class SheerIDProgram extends SheerID {
     return new SheerIDRequest<SheerIDOrganization | SheerIDErrorResponse>()
       .endpoint(`/program/${this.programId}/organization`)
       .method("GET")
-      .set("body", { name, country })
+      .set("body", { name: name, country: country })
       .send();
   }
 

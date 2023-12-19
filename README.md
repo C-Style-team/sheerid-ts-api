@@ -155,8 +155,8 @@ npm install sheerid-ts-api
 <details>
 <summary>Program</summary>
 
-- [ ] Get program theme
-- [ ] Get the verification steps the given program may encounter in the verification flow.
+- [x] Get program theme
+- [x] Get the verification steps the given program may encounter in the verification flow.
 - [ ] Get organization
 - [ ] Establish verification limit
 - [ ] Delete verification limit
