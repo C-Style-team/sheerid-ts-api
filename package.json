@@ -2,12 +2,18 @@
   "name": "sheerid-ts-api",
   "version": "0.2.2",
   "description": "Simple and minimal SheerID API wrapper for JavaScript / TypeScript (Unofficial)",
-  "keywords": ["SheerID", "verify", "validate", "identity", "identify"],
-  "main": "index.ts",
+  "keywords": [
+    "SheerID",
+    "verify",
+    "validate",
+    "identity",
+    "identify"
+  ],
+  "main": "./dist/index.js",
   "scripts": {
-    "test": "tsc src/test/index.ts && node src/test/index.js",
+    "test": "tsc && node dist/test/index.js",
     "preinstall": "npx only-allow pnpm",
-	  "format": "prettier --write src"
+    "format": "prettier --write src"
   },
   "repository": {
     "type": "git",
@@ -23,6 +29,7 @@
     "@sniptt/monads": "^0.5.10",
     "@types/node": "^20.9.2",
     "prettier": "^3.1.0",
+    "ts-node": "^10.9.2",
     "typescript": "^5.2.2"
   }
 }
