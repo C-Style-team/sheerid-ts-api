@@ -326,19 +326,19 @@ export type SheerIDAddSchoolInfo = {
 
 export type SheerIDVerificationReportSchema = {
   format: "CSV";
-  startDate: string;
-  endDate: string;
-  isPiiIncluded: boolean;
-  piiReason: string;
-  verificationModeInclusion: SheerIDVerificationModeInclusion;
-  programIds: Array<string>;
-  countryCodes: Array<string>;
-  rewardEligibilities: Array<SheerIDRewardEligibility>;
-  communities: Array<SheerIDCommunity>;
-  metadataRowFilters: object;
-  standardFields: Array<string>;
-  personFields: Array<string>;
-  metadataFields: Array<string>;
+  startDate?: string;
+  endDate?: string;
+  isPiiIncluded?: boolean;
+  piiReason?: string;
+  verificationModeInclusion?: SheerIDVerificationModeInclusion;
+  programIds?: Array<string>;
+  countryCodes?: Array<string>;
+  rewardEligibilities?: Array<SheerIDRewardEligibility>;
+  communities?: Array<SheerIDCommunity>;
+  metadataRowFilters?: object;
+  standardFields?: Array<string>;
+  personFields?: Array<string>;
+  metadataFields?: Array<string>;
 };
 
 export type SheerIDConversionInfo = {
