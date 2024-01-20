@@ -2,7 +2,6 @@
   "compilerOptions": {    
     "target": "esnext",
     "declaration": true,
-    "outDir": "./dist/types",
     "lib": ["esnext"],
     "module": "nodenext",
     "rootDir": "src",
