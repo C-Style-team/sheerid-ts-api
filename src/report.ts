@@ -1,6 +1,9 @@
 import { SheerID } from "./base.js";
 import { SheerIDRequest } from "./request.js";
-import { SheerIDErrorResponse, SheerIDReportResponse } from "./types/response.js";
+import {
+  SheerIDErrorResponse,
+  SheerIDReportResponse,
+} from "./types/response.js";
 import { SheerIDVerificationReportSchema } from "./types/info.js";
 
 export class SheerIDReport extends SheerID {

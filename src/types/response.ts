@@ -402,5 +402,5 @@ export type SheerIDOverrideEmailLoopResponse = {
 };
 
 export type SheerIDPossibleStepsResponse = Readonly<{
-  steps: Array<SheerIDVerificationStep>
+  steps: Array<SheerIDVerificationStep>;
 }>;

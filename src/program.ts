@@ -26,7 +26,9 @@ export class SheerIDProgram extends SheerID {
   }
 
   public getProgramPossibleSteps() {
-    return new SheerIDRequest<SheerIDPossibleStepsResponse | SheerIDErrorResponse>()
+    return new SheerIDRequest<
+      SheerIDPossibleStepsResponse | SheerIDErrorResponse
+    >()
       .endpoint(`/program/${this.programId}/possibleSteps`)
       .method("GET")
       .send();
