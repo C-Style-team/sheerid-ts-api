@@ -1,6 +1,7 @@
 {
   "compilerOptions": {    
     "target": "esnext",
+    "baseUrl": "./",
     "declaration": true,
     "lib": ["esnext"],
     "module": "nodenext",
