@@ -1,6 +1,6 @@
 {
   "name": "sheerid-ts-api",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Simple and minimal SheerID API wrapper for JavaScript / TypeScript (Unofficial)",
   "keywords": [
     "SheerID",
