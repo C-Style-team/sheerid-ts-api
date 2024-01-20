@@ -3,9 +3,9 @@ import {
   SheerIDOrganizationType,
   SheerIDVerificationMethod,
   SheerIDRejectionReason,
-} from "./enum";
+} from "./enum.js";
 
-import { SheerIDSuccessResponse } from "./response";
+import { SheerIDSuccessResponse } from "./response.js";
 
 export type SheerID401Error = Readonly<{
   systemErrorMessage: SheerIDErrorMessage;

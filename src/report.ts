@@ -1,7 +1,7 @@
-import { SheerID } from "./base";
-import { SheerIDRequest } from "./request";
-import { SheerIDErrorResponse, SheerIDReportResponse } from "./types/response";
-import { SheerIDVerificationReportSchema } from "./types/info";
+import { SheerID } from "./base.js";
+import { SheerIDRequest } from "./request.js";
+import { SheerIDErrorResponse, SheerIDReportResponse } from "./types/response.js";
+import { SheerIDVerificationReportSchema } from "./types/info.js";
 
 export class SheerIDReport extends SheerID {
   constructor(apiToken: string) {

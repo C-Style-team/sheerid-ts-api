@@ -1,4 +1,4 @@
-import { ExcludeSpecificProperties } from "./common";
+import { ExcludeSpecificProperties } from "./common.js";
 import {
   SheerIDApprovingVerificationType,
   SheerIDConsumerInfoState,
@@ -17,8 +17,8 @@ import {
   SheerIDOfferType,
   SheerIDReportStatus,
   SheerIDRewardDisplay,
-} from "./enum";
-import { SheerIDAllPersonInfo, SheerIDOrganization } from "./info";
+} from "./enum.js";
+import { SheerIDAllPersonInfo, SheerIDOrganization } from "./info.js";
 
 export type SheerIDResponse = Readonly<{
   segment?: SheerIDSegment;

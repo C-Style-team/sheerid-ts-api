@@ -7,7 +7,7 @@ import {
   SheerIDMoverStatus,
   SheerIDRewardEligibility,
   SheerIDVerificationModeInclusion,
-} from "./enum";
+} from "./enum.js";
 
 export type SheerIDOrganization = Readonly<{
   id: number;

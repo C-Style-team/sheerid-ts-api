@@ -1,10 +1,10 @@
-import { SheerID } from "./base";
-import { SheerIDRequest } from "./request";
-import { SheerIDAddSchoolInfo } from "./types/info";
+import { SheerID } from "./base.js";
+import { SheerIDRequest } from "./request.js";
+import { SheerIDAddSchoolInfo } from "./types/info.js";
 import {
   SheerIDErrorResponse,
   SheerIDSchoolSearchingResponse,
-} from "./types/response";
+} from "./types/response.js";
 
 export class SheerIDSchool extends SheerID {
   programId: string;

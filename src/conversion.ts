@@ -1,7 +1,7 @@
-import { SheerID } from "./base";
-import { SheerIDRequest } from "./request";
-import { SheerIDConversionInfo } from "./types/info";
-import { SheerIDConversionResponse } from "./types/response";
+import { SheerID } from "./base.js";
+import { SheerIDRequest } from "./request.js";
+import { SheerIDConversionInfo } from "./types/info.js";
+import { SheerIDConversionResponse } from "./types/response.js";
 
 export class SheerIDConversion {
   private verificationId: string | undefined;

@@ -1,5 +1,5 @@
-import { SheerIDRequest } from "./request";
-import { SheerIDInfoResponse } from "./types/response";
+import { SheerIDRequest } from "./request.js";
+import { SheerIDInfoResponse } from "./types/response.js";
 
 export class SheerIDInfo {
   public get() {

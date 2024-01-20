@@ -1,17 +1,17 @@
-import { SheerID } from "./base";
+import { SheerID } from "./base.js";
 import {
   SheerIDErrorResponse,
   SheerIDOverrideEmailLoopResponse,
   SheerIDSuccessResponse,
   SheerIDVerificationStatusDetailsResponse,
-} from "./types/response";
+} from "./types/response.js";
 import {
   SheerIDErrorId,
   SheerIDMilitaryStatus,
   SheerIDSegment,
   SheerIDVerificationStep,
-} from "./types/enum";
-import { SheerIDRequest } from "./request";
+} from "./types/enum.js";
+import { SheerIDRequest } from "./request.js";
 import {
   SheerIDActiveMilitaryInfo,
   SheerIDAgeInfo,
@@ -29,8 +29,8 @@ import {
   SheerIDSeniorInfo,
   SheerIDStudentInfo,
   SheerIDTeacherInfo,
-} from "./types/info";
-import { SheerIDOrganizationDetails } from "./types/common";
+} from "./types/info.js";
+import { SheerIDOrganizationDetails } from "./types/common.js";
 
 export class SheerIDVerification extends SheerID {
   verificationId: string | undefined;

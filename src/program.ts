@@ -1,12 +1,12 @@
-import { SheerID } from "./base";
-import { SheerIDRequest } from "./request";
-import { SheerIDVerificationStep } from "./types/enum";
-import { SheerIDOrganization } from "./types/info";
+import { SheerID } from "./base.js";
+import { SheerIDRequest } from "./request.js";
+import { SheerIDVerificationStep } from "./types/enum.js";
+import { SheerIDOrganization } from "./types/info.js";
 import {
   SheerIDErrorResponse,
   SheerIDPossibleStepsResponse,
   SheerIDProgramThemeResponse,
-} from "./types/response";
+} from "./types/response.js";
 
 export class SheerIDProgram extends SheerID {
   programId: string;
