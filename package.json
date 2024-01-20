@@ -10,6 +10,8 @@
     "identify"
   ],
   "main": "./dist/index.js",
+  "type": "module",
+	"types": "dist/index.d.ts",
   "scripts": {
     "test": "tsc && node dist/test/index.js",
     "preinstall": "npx only-allow pnpm",
