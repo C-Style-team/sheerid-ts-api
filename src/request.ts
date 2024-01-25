@@ -33,11 +33,11 @@ export class SheerIDRequest<T> {
     return this;
   }
 
-  public async send(): Promise<any> {
+  public async send(): Promise<T> {
     const response = await fetch(
       this.m_baseUrl + this.m_endpoint,
       this.canonicalizedParams(),
     );
-    return response.json();
+    return response.json() as T;
   }
 }
