@@ -5,9 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 devDependencies:
-  '@sniptt/monads':
-    specifier: ^0.5.10
-    version: 0.5.10
   '@types/node':
     specifier: ^20.9.2
     version: 20.10.3
@@ -44,11 +41,6 @@ packages:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.1
       '@jridgewell/sourcemap-codec': 1.4.15
-    dev: true
-
-  /@sniptt/monads@0.5.10:
-    resolution: {integrity: sha512-+agDOv9DpDV+9e2zN/Vmdk+XaqGx5Sykl0fqhqgiJ90r18nsBkxe44DmZ2sA1HYK+MSsBeZBiAr6pq4w+5uhfw==}
-    engines: {node: '>=14', npm: '>=7'}
     dev: true
 
   /@tsconfig/node10@1.0.9:
