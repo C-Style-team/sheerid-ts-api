@@ -212,7 +212,7 @@ export type SheerIDVerificationStatusDetailsResponse = Readonly<{
   docUploadRejectionCount: number;
   docUploadRejectionReasons: SheerIDRejectionReason[];
   verificationMethod: SheerIDVerificationMethod | null;
-  confirmedSegments?: {
+  confirmedSegments: {
     segment: SheerIDSegment;
     subSegment: SheerIDSubSegment | null;
     organization: SheerIDOrganization;
