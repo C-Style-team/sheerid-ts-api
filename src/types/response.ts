@@ -212,14 +212,14 @@ export type SheerIDVerificationStatusDetailsResponse = Readonly<{
   docUploadRejectionCount: number;
   docUploadRejectionReasons: SheerIDRejectionReason[];
   verificationMethod: SheerIDVerificationMethod | null;
-  confirmedSegments: {
+  confirmedSegments: Array<{
     segment: SheerIDSegment;
     subSegment: SheerIDSubSegment | null;
     organization: SheerIDOrganization;
     active: boolean;
     startDate: Date;
     endDate: Date;
-  };
+  }>;
   approvingVerificationTypes?: SheerIDApprovingVerificationType;
 }>;
 
