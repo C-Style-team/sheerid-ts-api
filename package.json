@@ -15,7 +15,7 @@
   "scripts": {
     "build": "tsc",
     "test": "tsc && node dist/test/index.js",
-    "prepare": "npm run build",
+    "prepare": "corepack pnpm build",
     "preinstall": "npx only-allow pnpm",
     "format": "prettier --write src"
   },
@@ -33,6 +33,7 @@
     "@types/node": "^20.9.2",
     "prettier": "^3.1.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "zod": "^3.22.4"
   }
 }
