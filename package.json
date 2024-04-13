@@ -31,6 +31,7 @@
   "homepage": "https://github.com/Kyure-A/sheerid-ts-api#readme",
   "devDependencies": {
     "@types/node": "^20.9.2",
+    "openapi-zod-client": "^1.17.0",
     "prettier": "^3.1.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.2.2",
