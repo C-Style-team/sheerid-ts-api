@@ -7,14 +7,6 @@ import {
 
 import { SheerIDSuccessResponse } from "./response.js";
 
-export type SheerID401Error = Readonly<{
-  systemErrorMessage: SheerIDErrorMessage;
-}>;
-
-export type SheerID404Error = Readonly<{
-  systemErrorMessage: SheerIDErrorMessage;
-}>;
-
 // [GET Response] /rest/v2/organization/{verificationId}
 export type SheerIDOrganizationDetails = Readonly<{
   id: number;
