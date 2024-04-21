@@ -1,31 +1,11 @@
-import {
-  SheerIDErrorMessage,
-  SheerIDOrganizationType,
-  SheerIDVerificationMethod,
-  SheerIDRejectionReason,
-} from "./enum.js";
+import { z } from "zod";
+import { schemas } from "src/g/index.js";
 
-import { SheerIDSuccessResponse } from "./response.js";
+export const SheerIDOrganizationsDetailsSchema = schemas.OrganizationDetails;
+export type SheerIDOrganizationDetails = z.infer<typeof SheerIDOrganizationsDetailsSchema>;
 
-// [GET Response] /rest/v2/organization/{verificationId}
-export type SheerIDOrganizationDetails = Readonly<{
-  id: number;
-  name: string;
-  type: SheerIDOrganizationType;
-  street: string;
-  city: string;
-  state: string;
-  zip: string;
-  country: string;
-}>;
-
-// [GET Response] /rest/v2/info
-export type SheerIDBuildInfo = Readonly<{
-  sheeridVersion: string;
-  sheeridGitCommit: string;
-  puppetGitCommit: string;
-  buildTimestamp: string; // "2023-11-18T13:35:52Z"
-}>;
+export const SheerIDBuildInfoSchema = schemas.BuildInformationResponseMessage;
+export type SheerIDBuildInfo = z.infer<typeof SheerIDBuildInfoSchema>;
 
 export type ExcludeSpecificProperties<T, K extends keyof T> = {
   [P in Exclude<keyof T, K>]: string;
