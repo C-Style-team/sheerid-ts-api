@@ -1,74 +1,74 @@
 import { z } from "zod";
 import { schemas } from "../g/index.js";
 
-export const sheeridVerificationMethodSchema = schemas.VerificationMethod;
-export type SheerIDVerificationMethod = z.infer<typeof sheeridVerificationMethodSchema>;
+export const SheerIDVerificationMethodSchema = schemas.VerificationMethod;
+export type SheerIDVerificationMethod = z.infer<typeof SheerIDVerificationMethodSchema>;
 
-export const sheeridConsumerInfoStateSchema = schemas.ConsumerInfoState;
-export type SheerIDConsumerInfoState = z.infer<typeof sheeridConsumerInfoStateSchema>;
+export const SheerIDConsumerInfoStateSchema = schemas.ConsumerInfoState;
+export type SheerIDConsumerInfoState = z.infer<typeof SheerIDConsumerInfoStateSchema>;
 
-export const sheeridVerificationStepSchema = schemas.VerificationStep;
-export type SheerIDVerificationStep = z.infer<typeof sheeridVerificationStepSchema>;
+export const SheerIDVerificationStepSchema = schemas.VerificationStep;
+export type SheerIDVerificationStep = z.infer<typeof SheerIDVerificationStepSchema>;
 
-export const sheerIDErrorIdSchema = schemas.ErrorId;
-export type SheerIDErrorId = z.infer<typeof sheerIDErrorIdSchema>;
+export const SheerIDErrorIdSchema = schemas.ErrorId;
+export type SheerIDErrorId = z.infer<typeof SheerIDErrorIdSchema>;
 
-export const sheerIDSegmentSchema = schemas.Segment;
-export type SheerIDSegment = z.infer<typeof sheerIDSegmentSchema>;
+export const SheerIDSegmentSchema = schemas.Segment;
+export type SheerIDSegment = z.infer<typeof SheerIDSegmentSchema>;
 
-export const sheerIDSubSegmentSchema = schemas.SubSegment;
-export type SheerIDSubSegment = z.infer<typeof sheerIDSubSegmentSchema>;
+export const SheerIDSubSegmentSchema = schemas.SubSegment;
+export type SheerIDSubSegment = z.infer<typeof SheerIDSubSegmentSchema>;
 
-export const sheerIDOrganizationTypeSchema = schemas.OrganizationType;
-export type SheerIDOrganizationType = z.infer<typeof sheerIDOrganizationTypeSchema>;
+export const SheerIDOrganizationTypeSchema = schemas.OrganizationType;
+export type SheerIDOrganizationType = z.infer<typeof SheerIDOrganizationTypeSchema>;
 
-export const sheerIDErrorMessageSchema = schemas.ErrorMessages;
-export type SheerIDErrorMessage = z.infer<typeof sheerIDErrorMessageSchema>;
+export const SheerIDErrorMessageSchema = schemas.ErrorMessages;
+export type SheerIDErrorMessage = z.infer<typeof SheerIDErrorMessageSchema>;
 
-export const sheerIDRejectionReasonSchema = schemas.RejectionReason;
-export type SheerIDRejectionReason = z.infer<typeof sheerIDRejectionReasonSchema>;
+export const SheerIDRejectionReasonSchema = schemas.RejectionReason;
+export type SheerIDRejectionReason = z.infer<typeof SheerIDRejectionReasonSchema>;
 
-export const sheerIDApprovingVerificationTypeSchema = schemas.ExternalVerificationType;
-export type SheerIDApprovingVerificationType = z.infer<typeof sheerIDApprovingVerificationTypeSchema>;
+export const SheerIDApprovingVerificationTypeSchema = schemas.ExternalVerificationType;
+export type SheerIDApprovingVerificationType = z.infer<typeof SheerIDApprovingVerificationTypeSchema>;
 
-export const sheerIDMilitaryStatusSchema = schemas.MilitaryStatus;
-export type SheerIDMilitaryStatus = z.infer<typeof sheerIDMilitaryStatusSchema>;
+export const SheerIDMilitaryStatusSchema = schemas.MilitaryStatus;
+export type SheerIDMilitaryStatus = z.infer<typeof SheerIDMilitaryStatusSchema>;
 
-export const sheerIDFirstResponderStatusSchema = schemas.FirstResponderStatus;
-export type SheerIDFirstResponderStatus = z.infer<typeof sheerIDFirstResponderStatusSchema>;
+export const SheerIDFirstResponderStatusSchema = schemas.FirstResponderStatus;
+export type SheerIDFirstResponderStatus = z.infer<typeof SheerIDFirstResponderStatusSchema>;
 
-export const sheerIDMedicalProfessionalStatusSchema = schemas.MedicalProfessionalStatus;
-export type SheerIDMedicalProfessionalStatus = z.infer<typeof sheerIDMedicalProfessionalStatusSchema>;
+export const SheerIDMedicalProfessionalStatusSchema = schemas.MedicalProfessionalStatus;
+export type SheerIDMedicalProfessionalStatus = z.infer<typeof SheerIDMedicalProfessionalStatusSchema>;
 
-export const sheerIDLicensedProfessionalStatusSchema = schemas.LicensedProfessionalStatus;
-export type SheerIDLicensedProfessionalStatus = z.infer<typeof sheerIDLicensedProfessionalStatusSchema>;
+export const SheerIDLicensedProfessionalStatusSchema = schemas.LicensedProfessionalStatus;
+export type SheerIDLicensedProfessionalStatus = z.infer<typeof SheerIDLicensedProfessionalStatusSchema>;
 
-export const sheerIDMoverStatusSchema = schemas.MoverStatus;
-export type SheerIDMoverStatus = z.infer<typeof sheerIDMoverStatusSchema>;
+export const SheerIDMoverStatusSchema = schemas.MoverStatus;
+export type SheerIDMoverStatus = z.infer<typeof SheerIDMoverStatusSchema>;
 
-export const sheerIDLowIncomeStatusSchema = schemas.LowIncomeStatus;
-export type SheerIDLowIncomeStatus = z.infer<typeof sheerIDLowIncomeStatusSchema>;
+export const SheerIDLowIncomeStatusSchema = schemas.LowIncomeStatus;
+export type SheerIDLowIncomeStatus = z.infer<typeof SheerIDLowIncomeStatusSchema>;
 
-export const sheerIDReviewTimeSchema = schemas.ReviewTime;
-export type SheerIDReviewTime = z.infer<typeof sheerIDReviewTimeSchema>;
+export const SheerIDReviewTimeSchema = schemas.ReviewTime;
+export type SheerIDReviewTime = z.infer<typeof SheerIDReviewTimeSchema>;
 
-export const sheerIDEstimatedReviewTimeSchema = schemas.EstimatedReviewTime;
-export type SheerIDEstimatedReviewTime = z.infer<typeof sheerIDEstimatedReviewTimeSchema>;
+export const SheerIDEstimatedReviewTimeSchema = schemas.EstimatedReviewTime;
+export type SheerIDEstimatedReviewTime = z.infer<typeof SheerIDEstimatedReviewTimeSchema>;
 
-export const sheerIDOfferTypeSchema = schemas.OfferType;
-export type SheerIDOfferType = z.infer<typeof sheerIDOfferTypeSchema>;
+export const SheerIDOfferTypeSchema = schemas.OfferType;
+export type SheerIDOfferType = z.infer<typeof SheerIDOfferTypeSchema>;
 
-export const sheerIDRewardDisplaySchema = schemas.ProgramVerificationConfig.shape.rewardDisplay;
-export type SheerIDRewardDisplay = z.infer<typeof sheerIDRewardDisplaySchema>;
+export const SheerIDRewardDisplaySchema = schemas.ProgramVerificationConfig.shape.rewardDisplay;
+export type SheerIDRewardDisplay = z.infer<typeof SheerIDRewardDisplaySchema>;
 
-export const sheerIDReportStatusSchema = schemas.ReportStatus;
-export type SheerIDReportStatus = z.infer<typeof sheerIDReportStatusSchema>;
+export const SheerIDReportStatusSchema = schemas.ReportStatus;
+export type SheerIDReportStatus = z.infer<typeof SheerIDReportStatusSchema>;
 
-export const sheerIDVerificationModeInclusionSchema = schemas.VerificationModeInclusion;
-export type SheerIDVerificationModeInclusion = z.infer<typeof sheerIDVerificationModeInclusionSchema>;
+export const SheerIDVerificationModeInclusionSchema = schemas.VerificationModeInclusion;
+export type SheerIDVerificationModeInclusion = z.infer<typeof SheerIDVerificationModeInclusionSchema>;
 
-export const sheerIDRewardEligibilitySchema = schemas.RewardEligibility;
-export type SheerIDRewardEligibility = z.infer<typeof sheerIDRewardEligibilitySchema>;
+export const SheerIDRewardEligibilitySchema = schemas.RewardEligibility;
+export type SheerIDRewardEligibility = z.infer<typeof SheerIDRewardEligibilitySchema>;
 
-export const sheerIDCommunitySchema = schemas.Community;
-export type SheerIDCommunity = z.infer<typeof sheerIDCommunitySchema>
+export const SheerIDCommunitySchema = schemas.Community;
+export type SheerIDCommunity = z.infer<typeof SheerIDCommunitySchema>
