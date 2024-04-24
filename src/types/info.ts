@@ -1,348 +1,89 @@
-import {
-  SheerIDCommunity,
-  SheerIDFirstResponderStatus,
-  SheerIDLicensedProfessionalStatus,
-  SheerIDLowIncomeStatus,
-  SheerIDMedicalProfessionalStatus,
-  SheerIDMoverStatus,
-  SheerIDRewardEligibility,
-  SheerIDVerificationModeInclusion,
-} from "./enum.js";
+import { schemas as SheerIDSchemas } from "src/g/index.js";
+import { z } from "zod";
 
-export type SheerIDOrganization = Readonly<{
-  id: number;
-  name: string;
-  idExtended?: string;
-  source?: string;
-}>;
+export const SheerIDOrganizationSchema = SheerIDSchemas.Organization;
+export type SheerIDOrganization = z.infer<typeof SheerIDOrganizationSchema>;
 
-export type SheerIDAllPersonInfo =
-  | SheerIDStudentInfo
-  | SheerIDTeacherInfo
-  | SheerIDActiveMilitaryInfo
-  | SheerIDInactiveMilitaryInfo
-  | SheerIDSeniorInfo
-  | SheerIDAgeInfo
-  | SheerIDFirstResponderInfo
-  | SheerIDMedicalProfessionalInfo
-  | SheerIDEmployeeInfo
-  | SheerIDMarketplaceSubject
-  | SheerIDVerificationToken
-  | SheerIDLicensedProfessionalInfo
-  | SheerIDMoverInfo
-  | SheerIDLowIncomeInfo;
+export const SheerIDStudentInfoSchema = SheerIDSchemas.Student;
+export type SheerIDStudentInfo = z.infer<typeof SheerIDStudentInfoSchema>;
 
-export type SheerIDStudentInfo = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  birthDate: string; // date
-  organization: SheerIDOrganization;
-  deviceFingerprintHash?: string;
-  ipAddress?: string; // deprecated
-  ipAddressExtended?: string;
-  externalUserId?: string;
-  phoneNumber?: string;
-  locale?: string;
-  metadata?: object;
-};
+export const SheerIDTeacherInfoSchema = SheerIDSchemas.Teacher;
+export type SheerIDTeacherInfo = z.infer<typeof SheerIDTeacherInfoSchema>;
 
-export type SheerIDTeacherInfo = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  organization: SheerIDOrganization;
-  deviceFingerprintHash?: string;
-  phoneNumber?: string;
-  birthDate?: string; // date
-  locale?: string;
-  postalCode?: string;
-  ipAddress?: string; // deprecated
-  ipAddressExtended?: string;
-  externalUserId?: string;
-  metadata?: object;
-};
+export const SheerIDActiveMilitaryInfoSchema = SheerIDSchemas.ActiveMilitary;
+export type SheerIDActiveMilitaryInfo = z.infer<typeof SheerIDActiveMilitaryInfoSchema>;
 
-export type SheerIDActiveMilitaryInfo = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  birthDate: string; // date
-  organization: SheerIDOrganization;
-  deviceFingerprintHash?: string;
-  phoneNumber?: string;
-  locale?: string;
-  ipAddress?: string; // deprecated
-  ipAddressExtended?: string;
-  externalUserId?: string;
-  metadata?: object;
-  country?: string;
-};
+export const SheerIDInActiveMilitaryInfoSchema = SheerIDSchemas.InactiveMilitary;
+export type SheerIDInActiveMilitaryInfo = z.infer<typeof SheerIDInActiveMilitaryInfoSchema>;
 
-export type SheerIDInactiveMilitaryInfo = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  birthDate: string; // date
-  organization: SheerIDOrganization;
-  dischargeDate: string; // date
-  deviceFingerprintHash?: string;
-  phoneNumber?: string;
-  locale?: string;
-  ipAddress?: string; // deprecated
-  ipAddressExtended?: string;
-  externalUserId?: string;
-  metadata?: object;
-  country?: string;
-  socialSecurityNumber: number;
-};
+export const SheerIDSeniorInfoSchema = SheerIDSchemas.Senior;
+export type SheerIDSeniorInfo = z.infer<typeof SheerIDSeniorInfoSchema>;
 
-export type SheerIDSeniorInfo = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  birthDate: string; // date
-  postalCode: string;
-  deviceFingerprintHash?: string;
-  phoneNumber?: string;
-  locale?: string;
-  ipAddress?: string; // deprecated
-  ipAddressExtended?: string;
-  externalUserId?: string;
-  metadata?: object;
-};
+export const SheerIDAgeInfoSchema = SheerIDSchemas.Age;
+export type SheerIDAgeInfo = z.infer<typeof SheerIDAgeInfoSchema>;
 
-export type SheerIDAgeInfo = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  birthDate: string; // date
-  phoneNumber: string;
-  postalCode?: string;
-  city?: string;
-  address1?: string;
-  country?: string;
-  deviceFingerprintHash?: string;
-  locale?: string;
-  ipAddress?: string; // deprecated
-  ipAddressExtended?: string;
-  externalUserId?: string;
-  metadata?: object;
-  marketConsent?: boolean;
-};
+export const SheerIDFirstResponderInfoSchema = SheerIDSchemas.FirstResponder;
+export type SheerIDFirstResponderInfo = z.infer<typeof SheerIDFirstResponderInfoSchema>;
 
-export type SheerIDFirstResponderInfo = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  organization: SheerIDOrganization;
-  statuses: Array<SheerIDFirstResponderStatus>;
-  deviceFingerprintHash?: string;
-  birthDate?: string; // date
-  status?: SheerIDFirstResponderStatus;
-  phoneNumber?: string;
-  locale?: string;
-  ipAddress?: string; // deprecated
-  ipAddressExtended?: string;
-  externalUserId?: string;
-  metadata?: object;
-  postalCode?: string;
-  stateCode?: string;
-  country?: string;
-};
+export const SheerIDMedicalProfessionalInfoSchema = SheerIDSchemas.MedicalProfessional;
+export type SheerIDMedicalProfessionalInfo = z.infer<typeof SheerIDMedicalProfessionalInfoSchema>;
 
-export type SheerIDMedicalProfessionalInfo = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  birthDate: string; // date
-  postalCode: string;
-  organization: SheerIDOrganization;
-  statuses: Array<SheerIDMedicalProfessionalStatus>;
-  deviceFingerprintHash?: string;
-  status?: SheerIDMedicalProfessionalStatus;
-  country?: string;
-  phoneNumber?: string;
-  memberId?: string;
-  locale?: string;
-  ipAddress?: string; // deprecated
-  ipAddressExtended?: string;
-  externalUserId?: string;
-  metadata?: object;
-};
+export const SheerIDEmployeeInfoSchema = SheerIDSchemas.Employee;
+export type SheerIDEmployeeInfo = z.infer<typeof SheerIDEmployeeInfoSchema>;
 
-export type SheerIDEmployeeInfo = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  address1: string;
-  city: string;
-  state: string;
-  postalCode: string;
-  organization: SheerIDOrganization;
-  phoneNumber?: string;
-  locale?: string;
-  country?: string;
-  deviceFingerprintHash?: string;
-  ipAddress?: string; // deprecated
-  ipAddressExtended?: string;
-  externalUserId?: string;
-  metadata?: object;
-};
+export const SheerIDMarketplaceSubjectSchema = SheerIDSchemas.MarketplaceSubject;
+export type SheerIDMarketplaceSubject = z.infer<typeof SheerIDMarketplaceSubjectSchema>;
 
-export type SheerIDMarketplaceSubject = {
-  email: string;
-  deviceFingerprintHash?: string;
-  ipAddress?: string; // deprecated
-  ipAddressExtended?: string;
-  externalUserId?: string;
-  phoneNumber?: string;
-  locale?: string;
-  metadata?: object;
-};
+export const SheerIDVerificationTokenSchema = SheerIDSchemas.VerificationToken;
+export type SheerIDVerificationToken = z.infer<typeof SheerIDVerificationTokenSchema>;
 
-export type SheerIDVerificationToken = {
-  verificationToken: string;
-};
+export const SheerIDLicensedProfessionalInfoSchema = SheerIDSchemas.LicensedProfessional;
+export type SheerIDLicensedProfessionalInfo = z.infer<typeof SheerIDLicensedProfessionalInfoSchema>;
 
-export type SheerIDLicensedProfessionalInfo = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  birthDate: string; // date
-  postalCode: string;
-  organization: SheerIDOrganization;
-  statuses: Array<SheerIDLicensedProfessionalStatus>;
-  deviceFingerprintHash?: string;
-  country?: string;
-  phoneNumber?: string;
-  locale?: string;
-  ipAddress?: string; // deprecated
-  ipAddressExtended?: string;
-  externalUserId?: string;
-  metadata?: object;
-};
+export const SheerIDMoverInfoSchema = SheerIDSchemas.Mover;
+export type SheerIDMoverInfo = z.infer<typeof SheerIDMoverInfoSchema>;
 
-export type SheerIDMoverInfo = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  address1: string;
-  postalCode: string;
-  statuses: Array<SheerIDMoverStatus>;
-  birthDate?: string;
-  deviceFingerprintHash?: string;
-  country?: string;
-  phoneNumber?: string;
-  locale?: string;
-  ipAddress?: string; // deprecated
-  ipAddressExtended?: string;
-  metadata?: object;
-};
+export const SheerIDLowIncomeInfoSchema = SheerIDSchemas.LowIncome;
+export type SheerIDLowIncomeInfo = z.infer<typeof SheerIDLowIncomeInfoSchema>;
 
-export type SheerIDLowIncomeInfo = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  birthDate: string;
-  country: string;
-  address1: string;
-  city: string;
-  state: string;
-  postalCode: string;
-  statuses: SheerIDLowIncomeStatus;
-  organization?: SheerIDOrganization;
-  phoneNumber?: string;
-  locale?: string;
-  ipAddress?: string; // deprecated
-  ipAddressExtended?: string;
-  deviceFingerprintHash?: string;
-  ebtCardNumber?: string;
-  metadata?: object;
-};
+export const SheerIDDriverLicenseInfoSchema = SheerIDSchemas.DriverLicense;
+export type SheerIDDriverLicenseInfo = z.infer<typeof SheerIDDriverLicenseInfoSchema>;
 
-export type SheerIDDriverLicenseInfo = {
-  firstName: string;
-  lastName: string;
-  state: string;
-  driverLicenseNumber: string;
-  email: string;
-  phoneNumber?: string;
-  locale?: string;
-  deviceFingerprintHash?: string;
-  ipAddress?: string; // deprecated
-  ipAddressExtended?: string;
-  metadata?: object;
-};
+export const SheerIDGeneralIdentityInfoSchema = SheerIDSchemas.GeneralIdentity;
+export type SheerIDGeneralIdentityInfo = z.infer<typeof SheerIDGeneralIdentityInfoSchema>;
 
-export type SheerIDGeneralIdentityInfo = {
-  firstName: string;
-  lastName: string;
-  address1: string;
-  city: string;
-  state: string;
-  postalCode: string;
-  email: string;
-  birthDate?: string;
-  phoneNumber?: string;
-  locale?: string;
-  deviceFingerprintHash?: string;
-  ipAddress?: string; // deprecated
-  ipAddressExtended?: string;
-  metadata?: object;
-};
+export const SheerIDMemberInfoSchema = SheerIDSchemas.Member;
+export type SheerIDMemberInfo = z.infer<typeof SheerIDMemberInfoSchema>;
 
-export type SheerIDMemberInfo = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  organization: SheerIDOrganization;
-  deviceFingerprintHash?: string;
-  birthDate?: string;
-  memberId?: string;
-  address1?: string;
-  city?: string;
-  state?: string;
-  postalCode?: string;
-  country?: string;
-  phoneNumber?: string;
-  locale?: string;
-  ipAddress?: string; // deprecated
-  ipAddressExtended?: string;
-  externalUserId: string;
-  metadata?: object;
-};
+export const SheerIDAddSchoolInfoSchema = SheerIDSchemas.AddSchoolRequest
+export type SheerIDAddSchoolInfo = z.infer<typeof SheerIDAddSchoolInfoSchema>;
 
-export type SheerIDAddSchoolInfo = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  programId: string;
-  schoolName: string;
-  schoolDomain: string;
-  schoolCountry: string;
-  trackingId?: string;
-};
+export const SheerIDVerificationReportSchema = SheerIDSchemas.VerificationReportRequest;
+export type SheerIDVerificationReportSchema = z.infer<typeof SheerIDVerificationReportSchema>;
 
-export type SheerIDVerificationReportSchema = {
-  format: "CSV";
-  startDate?: string;
-  endDate?: string;
-  isPiiIncluded?: boolean;
-  piiReason?: string;
-  verificationModeInclusion?: SheerIDVerificationModeInclusion;
-  programIds?: Array<string>;
-  countryCodes?: Array<string>;
-  rewardEligibilities?: Array<SheerIDRewardEligibility>;
-  communities?: Array<SheerIDCommunity>;
-  metadataRowFilters?: object;
-  standardFields?: Array<string>;
-  personFields?: Array<string>;
-  metadataFields?: Array<string>;
-};
+export const SheerIDConversionInfoSchema = SheerIDSchemas.ConversionRequest;
+export type SheerIDConversionInfo = z.infer<typeof SheerIDConversionInfoSchema>;
 
-export type SheerIDConversionInfo = {
-  amount: number; // amount >= 0
-  currency: string; // The ISO-4217 3-letter Alphabetic Currency Code
-  tags: Array<string>;
-};
+export const SheerIDAllPersonInfoSchema = z.union([
+  SheerIDStudentInfoSchema,
+  SheerIDTeacherInfoSchema,
+  SheerIDActiveMilitaryInfoSchema,
+  SheerIDInActiveMilitaryInfoSchema,
+  SheerIDSeniorInfoSchema,
+  SheerIDAgeInfoSchema,
+  SheerIDFirstResponderInfoSchema,
+  SheerIDMedicalProfessionalInfoSchema,
+  SheerIDEmployeeInfoSchema,
+  SheerIDMarketplaceSubjectSchema,
+  SheerIDVerificationTokenSchema,
+  SheerIDLicensedProfessionalInfoSchema,
+  SheerIDMoverInfoSchema,
+  SheerIDLowIncomeInfoSchema,
+  SheerIDDriverLicenseInfoSchema,
+  SheerIDGeneralIdentityInfoSchema,
+  SheerIDMemberInfoSchema,
+  SheerIDAddSchoolInfoSchema,
+  SheerIDVerificationReportSchema,
+  SheerIDConversionInfoSchema
+])
+export type SheerIDAllPersonInfo = z.infer<typeof SheerIDAllPersonInfoSchema>;;
